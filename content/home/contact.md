@@ -15,5 +15,3 @@ weight = 70
 autolink = true
 
 +++
-foo
-h1.bar

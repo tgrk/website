@@ -20,20 +20,20 @@ weight = 1
 
 [domains]
   domain = [
-  "Payments",
-  "Analytics",
   "REST/API",
   "Scalability",
-  "Performance"
-  ]
+  "Performance",
+  "Payments",
+  "Analytics",
+]
 
 [technologies]
   technology = [
     "Erlang/OTP",
-    "GO",
+    "Elixir",
+    "Go",
     "Javascript",
     "Java",
-    "REST/API",
     "Python"
   ]
 

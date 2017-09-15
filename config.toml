@@ -29,7 +29,7 @@ defaultContentLanguageInSubdir = false
   office_hours = ""
   phone = ""
   skype = "tajgur"
-  telegram = ""
+  linkedin = ""
 
   # Enable Keybase in Contact section by entering your keybase.io username.
   keybase = "tgrk"
@@ -131,6 +131,11 @@ defaultContentLanguageInSubdir = false
     icon = "twitter"
     icon_pack = "fa"
     link = "//twitter.com/tajgur"
+
+  [[params.social]]
+    icon = "linkedin"
+    icon_pack = "fa"
+    link = "//de.linkedin.com/in/martinwiso"
 
   [[params.social]]
     icon = "github"
