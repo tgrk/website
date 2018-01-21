@@ -1,0 +1,17 @@
+01_erlang_erlpocket:
+  title: Erlpocket
+  link: https://hex.pm/packages/erlpocket
+  avatar: /media/hex.png
+  description: Erlang library for Pocket API
+
+02_erlang_lager_humio_backend:
+  title: lager_humio_backend
+  link: https://hex.pm/packages/lager_humio_backend
+  avatar: /media/hex.png
+  description: Lager logging backend for Humio.com
+
+03_erlang_yatael:
+  title: yatael
+  link: https://github.com/tgrk/yatael
+  avatar: /media/github.png
+  description: Yet Another Twitter API Erlang Library

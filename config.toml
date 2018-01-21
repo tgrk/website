@@ -1,182 +1,58 @@
-baseurl = "https://wiso.cz"
-title = "Martin Wišo | Personal Site"
-copyright = "&copy; 2017 Martin Wišo"
-theme = "academic"
-enableEmoji = true
-footnotereturnlinkcontents = "<sup>^</sup>"
+baseURL = "http://localhost:1313"
+languageCode = "en"
+title = "Martin Wišo"
+theme = "hugo-nuo"
+enableRobotsTXT = true
+pygmentsuseclasses = true
+PygmentsCodeFences = true
+canonifyurls = true
 
-# Enable comments by entering your Disqus shortname
-disqusShortname = "wiso"
+# Disqus Username
+disqusShortname = "tgrk"
 
-# Enable analytics by entering your Google Analytics tracking ID
+# Google Analytics UA number
 googleAnalytics = "UA-78085-1"
 
-# Default language to use (if you setup multilingual support)
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
+# Copyright of your post
+copyright = "© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce."
 
-[blackfriday]
-  hrefTargetBlank = true
-
-[params]
-  name = "Martin Wišo"
-  role = "Senior Software Engineer"
-  organization = ""
-  organization_url = ""
-  avatar = "profile_portrait.jpg"
-  email = "martin@wiso.cz"
-  address = "Berlin/Prague"
-  office_hours = ""
-  phone = ""
-  skype = "tajgur"
-  linkedin = ""
-
-  # Enable Keybase in Contact section by entering your keybase.io username.
-  keybase = "tgrk"
-
-  # Date format (refer to Go's date format: http://flippinggodateformat.com )
-  #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
-  date_format = "Mon, Jan 2, 2006"
-
-  # Enable global LaTeX math rendering?
-  #   If false, you can enable it locally on a per page basis.
-  math = false
-
-  # Highlight.js options
-  #   highlight
-  #     Enable global source code highlighting?  If false, you can
-  #     override it for a particular page in that page's preamble.
-  #
-  #     Example: highlight = true
-  #
-  #   highlight_languages
-  #     Add support for highlighting additional languages. Support for
-  #     languages mentioned here will be included in all pages. You
-  #     can also set this variable for a particular page in that
-  #     page's preamble.
-  #
-  #     Example: highlight_languages = ["go", "lisp", "ocaml"]
-  #
-  #   highlight_style
-  #     Choose a different CSS style for highlighting source
-  #     code. Setting this option in a page's preamble has no
-  #     effect.
-  #
-  #     Example: highlight_style = "github-gist"
-  #
-  #   highlight_version
-  #     Choose the version of highlight.js you want. Setting this
-  #     option in a page's preamble has no effect.
-  #
-  #     Example: highlight_version = "9.9.0"
-  #
-  #   For the list of supported languages, styles, and versions, see:
-  #   https://cdnjs.com/libraries/highlight.js/
-  #
-  #   For more info on the highlighting options, see:
-  #   https://gcushen.github.io/hugo-academic-demo/post/writing-markdown-latex/#highlighting-options
-  highlight = true
-  highlight_languages = ["erlang", "elixir", "go", "javascript", "python"]
-  highlight_style = "github"
-  # highlight_version = "9.9.0"
-
-  # Enable native social sharing buttons?
-  sharing = true
-
-  # Link custom CSS and JS assets
-  #   (relative to /static/css and /static/js respectively)
-  custom_css = []
-  custom_js  = []
-
-  # Publication types.
-  #   Used to categorize publications.
-  #   The index of the publication type in the list is used as its unique numerical identifier.
-  #   The numeric ID is used in a publication's frontmatter to categorize it.
-  #   The language can be edited below.
-  #   For multi-lingual sites, copy this block to each language section at the end of this file.
-  publication_types = [
-    'Uncategorized',  # 0
-    'Conference proceedings',  # 1
-    'Journal',  # 2
-    'Work in progress',  # 3
-    'Technical report',  # 4
-    'Book',  # 5
-    'Book chapter'  # 6
-  ]
-
-  # Social/Academic Networking
-  #
-  # Icon pack "fa" includes the following social network icons:
-  #
-  #   twitter, weibo, linkedin, github, facebook, pinterest, google-plus,
-  #   youtube, instagram, soundcloud
-  #
-  #   For email icon, use "fa" icon pack, "envelope" icon, and
-  #   "mailto:your@email.com" as the link.
-  #
-  #   Full list: https://fortawesome.github.io/Font-Awesome/icons/
-  #
-  # Icon pack "ai" includes the following academic network icons:
-  #
-  #   google-scholar, arxiv, orcid, researchgate, mendeley
-  #
-  #   Full list: https://jpswalsh.github.io/academicons/
-
-  [[params.social]]
-    icon = "envelope"
-    icon_pack = "fa"
-    link = "mailto:martin@wiso.cz.org"
-
-  [[params.social]]
-    icon = "twitter"
-    icon_pack = "fa"
-    link = "//twitter.com/tajgur"
-
-  [[params.social]]
-    icon = "linkedin"
-    icon_pack = "fa"
-    link = "//de.linkedin.com/in/martinwiso"
-
-  [[params.social]]
-    icon = "github"
-    icon_pack = "fa"
-    link = "//github.com/tgrk"
-
-
-# Navigation Links
-#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
-#     desired widget in your `content/home/` folder.
-#   The weight parameter defines the order that the links will appear in.
-
+# Initial site menu, you can extend menu with content.
 [[menu.main]]
   name = "Home"
-  url = "#about"
-  weight = 1
+  weight = 10
+  identifier = "home"
+  url = "/"
 
 [[menu.main]]
-  name = "Posts"
-  url = "#posts"
-  weight = 3
+  name = "Tags"
+  weight = 40
+  identifier = "tags"
+  url = "/tags/"
 
-[[menu.main]]
-  name = "Projects"
-  url = "#projects"
-  weight = 4
+# Add your own params here
+[params]
+  author = "Martin Wiso"
+  avatar = "/media/profile_portrait.jpg"
+  seotitle = "Martin Wiso - Personal Site"
+  subtitle = "Personal Site"
+  description = "Software Engineering, Erlang/OTP, Elixir, Golang, Javascript, Functional Programming, FP, DistSys, Distributed Systems, API, REST"
+  paginate = 10
 
-[[menu.main]]
-  name = "Contact"
-  url = "#contact"
-  weight = 6
+  # Choose your social networks
+  email = "martin@wiso.cz"
+  github = "tgrk"
+  twitter = "tajgur"
+  linkedin = "martinwiso"
+  # facebook = "facebook_username"
+  # google = "googlplus_id_number"
+  # instagram = "instagram_username"
+  # youtube = "youtube_username"
+  # vimeo = "vimeo_username"
+  # medium = "medium_username"
 
-# Taxonomies.
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  publication_type = "publication_types"
+  # Google Webmaster - https://www.google.com/webmasters/
+  googleSiteVerification = "OlG8d1-VjmP0SViMHeKB-RDJdflPtkrQnIGFSvMXrcA"
 
-# Languages
-#   Create a [languages.X] block for each language you want, where X is the language ID.
-
-# Configure the English version of the website.
-[languages.en]
-  languageCode = "en-us"
+  # Bing Webmaster
+  # https://www.bing.com/toolbox/webmaster/
+  # msValidate = "22596E34341DD1D17D6022C44647E587"
