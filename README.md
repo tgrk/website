@@ -6,6 +6,10 @@
 $ hugo new post/my-new-post.md
 ```
 
+```bash
+$ yarn build
+```
+
 ## Development with reload
 
 ```bash
