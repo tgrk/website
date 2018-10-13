@@ -10,8 +10,8 @@ jobs:
       - checkout
 
       # install git submodules for managing third-party dependencies
-      # - run: apk update && apk add git
-      # - run: git submodule sync && git submodule update --init
+      - run: apk update && apk add git
+      - run: git submodule sync && git submodule update --init
 
       - run:
           name: Install lftp
