@@ -1,0 +1,37 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: ~/hugo/public
+    steps:
+      - checkout
+
+      # install git submodules for managing third-party dependencies
+      # - run: apk update && apk add git
+      # - run: git submodule sync && git submodule update --init
+
+      - run:
+          name: Install lftp
+          command: |
+            apk add --update lftp
+
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+
+      - run:
+          name: Test our generated HTML files
+          command: |
+            htmlproofer $HUGO_BUILD_DIR --allow-hash-href --check-html \
+            --empty-alt-ignore --disable-external
+      # `deploy` step: identical to a `run` step, but uses only one container:
+      # https://circleci.com/docs/2.0/configuration-reference/#deploy
+      # - deploy:
+      #     name: Deploy to Wedos
+      #     command: |
+      #       if [ "${CIRCLE_BRANCH}" = "master" ]; then
+      #         lftp -e "mirror -R {local dir} {remote dir}" -u {username},{password} {host}
+      #       else
+      #         echo "Not master branch, dry run only"
+      #       fi
