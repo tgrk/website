@@ -22,7 +22,7 @@ jobs:
 
       - run:
           name: Copy theme fonts
-          command: cp -R /root/hugo/themes/hugo-nuo/src/fonts /root/hugo/public
+          command: cp -R /root/hugo/themes/hugo-nuo/static/fonts /root/hugo/public
 
       # - run:
       #     name: Inject ybot snippet
