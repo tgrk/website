@@ -36,7 +36,7 @@ jobs:
           name: Deploy to Wedos
           command: |
             if [ "${CIRCLE_BRANCH}" = "master" ]; then
-              lftp -e "mirror -R ~/hugo/public/* /www/domains/wiso.cz/" -u $FTP_USER,$FTP_PASSWD $FTP_HOST
+              lftp -e "mirror -R $HUGO_BUILD_DIR /www/domains/wiso.cz/" -u $FTP_USER,$FTP_PASSWD $FTP_HOST
             else
               echo "Not master branch, dry run only"
             fi
