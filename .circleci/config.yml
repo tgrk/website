@@ -20,6 +20,10 @@ jobs:
 
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
 
+      - run:
+          name: Copy fonts
+          command: cp -R /root/hugo/themes/hugo-nuo/fonts /root/hugo/public
+
       # - run:
       #     name: Inject ybot snippet
 
