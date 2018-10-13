@@ -1,4 +1,4 @@
-baseURL = "http://www.wiso.cz"
+baseURL = "https://www.wiso.cz"
 languageCode = "en"
 title = "Martin Wišo"
 theme = "hugo-nuo"
