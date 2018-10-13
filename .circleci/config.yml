@@ -20,6 +20,12 @@ jobs:
 
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
 
+      # - run:
+      #     name: Inject ybot snippet
+
+      # - run:
+      #     name: Override flavicons
+
       - run:
           name: Test our generated HTML files
           command: |
