@@ -26,9 +26,9 @@ jobs:
 
       # - run:
       #     name: Inject ybot snippet
-
       # - run:
       #     name: Override flavicons
+      #     command: cp /root/hugo/static/icons/
 
       - run:
           name: Test our generated HTML files
