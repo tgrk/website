@@ -15,3 +15,9 @@
   link: https://github.com/tgrk/yatael
   avatar: /media/github.png
   description: Yet Another Twitter API Erlang Library
+
+04_erlang_simple_cache:
+  title: Simple Cache
+  link: https://hex.pm/packages/simple_cache
+  avatar: /media/hex.png
+  description: Simple memory cache with expiration.
