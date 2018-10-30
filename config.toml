@@ -33,7 +33,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   name = "Tags"
   weight = 40
   identifier = "tags"
-  url = "/tags/"
+  url = "/tags"
 
 # Add your own params here
 [params]
@@ -50,7 +50,6 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
   twitter = "tajgur"
   linkedin = "martinwiso"
   instagram = "martinwiso"
-  # facebook = "facebook_username"
   # google = "googlplus_id_number"
   # youtube = "youtube_username"
   # vimeo = "vimeo_username"
