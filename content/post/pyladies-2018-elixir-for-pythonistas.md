@@ -1,7 +1,7 @@
 ---
 title: 'Talk for Pyladies Berlin Meetup - Elixir for Pythonistas'
 author: 'Martin Wiso'
-cover: '/img/cover.jpg'
+cover: '/media/posts/pyladies_2018.jpg'
 tags: ['Talk', 'Meetup', 'Elixir']
 date: 2018-10-13T21:06:25+02:00
 draft: false
