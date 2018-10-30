@@ -4,7 +4,7 @@ author: 'Martin Wiso'
 cover: '/img/cover.jpg'
 tags: ['Talk', 'Meetup', 'Elixir']
 date: 2018-10-13T21:06:25+02:00
-draft: true
+draft: false
 ---
 
 Some time ago I was asked by my ex-colleague to give a talk about Elixir, OTP and BEAM as part of PyLadies Berlin Meetup group. The objective was to do a gentle introduction into language and functional programming from point of view of an experienced Python developer.
