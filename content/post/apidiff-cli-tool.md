@@ -6,13 +6,13 @@ date: 2019-01-02T13:28:00+01:00
 draft: true
 ---
 
-While rewriting some of [IDAGIO](https://asciinema.org) micro services back to monolith I came across a need to be able to compare HTTP JSON based APIs for both payload and HTTP header changes. Sadly all tools I came across were either too simple, lacking flexibility or lacking CLI interface. Well then I decided it should be easy to write new one CLI tool...
+While rewriting some of [IDAGIO](https://asciinema.org) micro-services back to monolith I came across a need to be able to compare HTTP JSON based APIs for both payload and HTTP header changes. Sadly all tools I came across were either too simple, lacking flexibility or lacking CLI interface. Well, then I decided it should be easy to write new one CLI tool...
 
 <!--more-->
 
 # TL;TR
 
-[APIDiff](https://github.com/tgrk/apidiff) records HTTP API (JSON based) calls and compares the them on both HTTP and JSON level. This is helpful when migrating or refactoring APIs to make sure your API contract did not change. It also stores basic performance metrics.
+[APIDiff](https://github.com/tgrk/apidiff) records HTTP API (JSON based) calls and compares them on both HTTP and JSON level. This is helpful when migrating or refactoring APIs to make sure your API contract did not change. It also stores basic performance metrics.
 
 # Overview
 
@@ -21,7 +21,7 @@ You can find core functionality as part of this [asciinema](https://asciinema.or
 
 # Features
 
-My intention was to have quite lean small tool that covers only features listed bellow:
+My intention was to have a quite lean small tool that covers only features listed below:
 
 * CLI tool that can be integrated into CI/CD
 * Support JSON based HTTP APIs
@@ -31,11 +31,11 @@ My intention was to have quite lean small tool that covers only features listed 
 
 # Installation
 
-As of now there is no OS package available and you have to have [golang](https://golang.org/doc/install) installed. After that you can use following command:
+As of now, there is no OS package available and you have to have [golang](https://golang.org/doc/install) installed. After that you can use the following command:
 ```bash
 $ go get gopkg.in/tgrk/apidiff.v1
 ```
 
 # Credits
 
-This whole project is build arounc concept of VCR/Cassette recording that is a great helper when your application integrates 3rd party services and IMO better way than using mocks written in your favorite programming language.
+This whole project is built around the concept of VCR/Cassette recording that is a great helper when your application integrates 3rd party services and IMO better way than using mocks written in your favourite programming language.
