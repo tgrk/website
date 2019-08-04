@@ -8,12 +8,12 @@ jobs:
       HUGO_BUILD_DIR: /root/hugo/public
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - 'e0:74:8e:9c:48:05:54:25:eb:4d:b2:2f:0e:5f:1b:3f'
+      - run:
+        name: Avoid hosts unknown for github
+        command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       - run: apk update && apk add git
-      - run: cd themes && git clone git@github.com:laozhu/hugo-nuo.git && cd ..
+      - run: git clone git@github.com:laozhu/hugo-nuo.git themes/
 
       - run:
           name: Install lftp
