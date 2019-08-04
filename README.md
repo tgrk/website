@@ -2,34 +2,25 @@
 
 ## Publish new content
 
-```bash
-$ hugo new post/my-new-post.md
-```
-
-```bash
-$ yarn build
-```
+  $ hugo new post/my-new-post.md
+  $ yarn build
 
 ## Development with reload
 
-```bash
-$ hugo server -D
-```
+  $ hugo server -D
 
 ## Update hugo
 
-```bash
-$ cd $GOPATH/src/github.com/gohugoio/hugo
-$ git pull
-$ make vendor
-$ make install
-```
+  $ cd ~/Projects/libs
+  $ git clone https://github.com/gohugoio/hugo.git
+  $ cd hugo
+  $ go install --tags extended
 
 ## Theme customizations
 
 `/layouts/partials/footer.html`
 
-```
+```html
 <!-- Ybug code -->
 <script type='text/javascript'>
   (function () {
