@@ -38,7 +38,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
 # Add your own params here
 [params]
   author = "Martin Wiso"
-  avatar = "/media/profile_portrait.jpg"
+  avatar = "/images/profile_portrait.jpg"
   seotitle = "Martin Wiso - Personal Site"
   subtitle = "Personal Site"
   description = "Software Engineering, Erlang/OTP, Elixir, Golang, Javascript, Functional Programming, FP, DistSys, Distributed Systems, API, REST"
