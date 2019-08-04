@@ -9,7 +9,6 @@ jobs:
     steps:
       - checkout
 
-      # install git submodules for managing third-party dependencies
       - run: apk update && apk add git
       - run: git submodule sync && git submodule update --init
 
@@ -23,12 +22,6 @@ jobs:
       - run:
           name: Copy theme fonts
           command: cp -R /root/hugo/themes/hugo-nuo/static/fonts /root/hugo/public
-
-      # - run:
-      #     name: Inject ybot snippet
-      # - run:
-      #     name: Override flavicons
-      #     command: cp /root/hugo/static/icons/
 
       - run:
           name: Test our generated HTML files
