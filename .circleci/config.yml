@@ -14,7 +14,9 @@ jobs:
           command: apk update && apk add git
       - run:
           name: Fetch theme repository submodule
-          command: git submodule sync && git submodule update --init
+          command: |
+            git submodule sync
+            git submodule update --init
 
       - run:
           name: Install lftp
