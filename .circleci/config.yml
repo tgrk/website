@@ -8,16 +8,13 @@ jobs:
       HUGO_BUILD_DIR: /root/hugo/public
     steps:
       - checkout
-      - run:
-          name: Avoid hosts unknown for github
-          command: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       - run:
           name: Install dependencies
           command: apk update && apk add git
       - run:
-          name: Clone theme repository
-          command: git clone https://github.com/laozhu/hugo-nuo.git themes/hugo-nuo
+          name: Fetch theme repository submodule
+          command: git submodule sync && git submodule update --init
 
       - run:
           name: Install lftp
