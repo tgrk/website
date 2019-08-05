@@ -17,7 +17,7 @@ jobs:
           command: apk update && apk add git
       - run:
           name: Clone theme repository
-          command: git clone git@github.com:laozhu/hugo-nuo.git themes/hugo-nuo
+          command: git clone https://github.com/laozhu/hugo-nuo.git themes/hugo-nuo
 
       - run:
           name: Install lftp
