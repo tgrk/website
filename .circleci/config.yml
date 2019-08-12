@@ -23,10 +23,6 @@ jobs:
 
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
 
-      # - run:
-      #     name: Copy theme fonts
-      #     command: cp -R /root/hugo/themes/hugo-nuo/static/fonts /root/hugo/public
-
       - run:
           name: Test our generated HTML files
           command: |
