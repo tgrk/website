@@ -24,6 +24,6 @@
 
 05_elixir_humanids:
   title: Human IDs
-  link: https://hex.pm/packages/humanides
+  link: https://hex.pm/packages/humanids
   avatar: /media/hex.png
   description: Generate Human Readable IDs.
