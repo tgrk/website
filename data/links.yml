@@ -21,3 +21,9 @@
   link: https://hex.pm/packages/simple_cache
   avatar: /media/hex.png
   description: Simple memory cache with expiration.
+
+05_elixir_humanids:
+  title: Human IDs
+  link: https://hex.pm/packages/humanides
+  avatar: /media/hex.png
+  description: Generate Human Readable IDs.
