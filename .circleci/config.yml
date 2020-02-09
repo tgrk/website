@@ -5,6 +5,7 @@ jobs:
       - image: cibuilds/hugo:latest
     working_directory: /home/circleci/hugo
     environment:
+      HUGO_DIR: /home/circleci/hugo
       HUGO_BUILD_DIR: /home/circleci/hugo/public
     steps:
       - checkout
@@ -14,7 +15,7 @@ jobs:
           command: sudo apt update && sudo apt install git
       - run:
           name: Fetch theme repository submodule
-          command: git submodule add -f https://github.com/laozhu/hugo-nuo ${HUGO_BUILD_DIR}/themes/hugo-nuo
+          command: git submodule add -f https://github.com/laozhu/hugo-nuo $HOME_DIR/themes/hugo-nuo
 
       - run:
           name: Install lftp
