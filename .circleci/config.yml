@@ -15,7 +15,7 @@ jobs:
           command: sudo apt update && sudo apt install git
       - run:
           name: Fetch theme repository submodule
-          command: git submodule add -f https://github.com/laozhu/hugo-nuo $HUGO_DIR/themes/hugo-nuo
+          command: git submodule add -f https://github.com/tgrk/hugo-nuo $HUGO_DIR/themes/hugo-nuo
 
       - run:
           name: Install lftp
