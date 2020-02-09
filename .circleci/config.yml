@@ -11,7 +11,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: apt update && apt install git
+          command: sudo apt update && sudo apt install git
       - run:
           name: Fetch theme repository submodule
           command: git submodule add -f https://github.com/laozhu/hugo-nuo ${HUGO_BUILD_DIR}/themes/hugo-nuo
@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Install lftp
           command: |
-            apt install lftp
+            sudo apt install lftp
 
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
 
