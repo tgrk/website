@@ -1,0 +1,45 @@
+name: Website build & deployment
+on:
+  push:
+    branches: [ master ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - uses: actions/checkout@v3
+        with:
+          repository: tgrk/hugo-nuo
+          path: themes/hugo-nuo
+
+      - name: Checkout theme
+        uses: actions/checkout@v3
+        with:
+          repository: tgrk/hugo-nuo
+          path: themes/hugo-nuo
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Upload via FTP
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          ftp_ssl_allow: "true"
+          ftp_use_feat: "true"
+          local_dir: "public"
+          remote_dir: "/www/domains/wiso.cz"
+          delete: "false"
