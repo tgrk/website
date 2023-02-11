@@ -10,20 +10,26 @@
   avatar: /media/hex.png
   description: Lager logging backend for Humio.com
 
-03_erlang_yatael:
+03_changelog2jira:
+  title: Changelog2JIRA
+  link: https://github.com/tgrk/changelog2jira
+  avatar: /media/github.png
+  description: CHANGELOG JIRA IDs 🠖 JIRA Webhook
+
+04_erlang_yatael:
   title: YATAEL
   link: https://github.com/tgrk/yatael
   avatar: /media/github.png
   description: Yet Another Twitter API Erlang Library
 
-04_erlang_simple_cache:
+05_erlang_simple_cache:
   title: Simple Cache
   link: https://hex.pm/packages/simple_cache
   avatar: /media/hex.png
   description: Simple memory cache with expiration.
 
-05_elixir_humanids:
+06_elixir_humanids:
   title: Human IDs
   link: https://hex.pm/packages/humanids
   avatar: /media/hex.png
-  description: Generate Human Readable IDs.
+  description: Generate Human Readable IDs
