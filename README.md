@@ -3,11 +3,11 @@
 ## Publish new content
 
   $ hugo new post/my-new-post.md
-  $ yarn build
+  $ hugo
 
 ## Development with reload
 
-  $ hugo server -D
+  $ hugo server
 
 ## Update hugo
 
