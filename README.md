@@ -18,6 +18,9 @@
 
 ## Theme customizations
 
+Fetch submodules
+    $  git submodule update --init --recursive
+
 `/layouts/partials/footer.html`
 
 ```html
