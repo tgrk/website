@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: false
-          fetch-depth: 0
+          repository: tgrk/hugo-nuo
+          path: themes/hugo-nuo
 
       - uses: actions/checkout@v3
         with:
