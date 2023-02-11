@@ -3,3 +3,4 @@ public/
 .vscode/launch.json
 themes/hugo-nuo/
 resources/
+.hugo_build.lock
