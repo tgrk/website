@@ -3,26 +3,37 @@ on:
   push:
     branches: [ master ]
 jobs:
-  deploy:
+  prepare:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Fetch website
+        uses: actions/checkout@v3
         with:
-          repository: tgrk/hugo-nuo
-          path: themes/hugo-nuo
-
-      - uses: actions/checkout@v3
-        with:
-          repository: tgrk/hugo-nuo
-          path: themes/hugo-nuo
+          submodules: false
+          fetch-depth: 0
 
       - name: Checkout theme
         uses: actions/checkout@v3
         with:
           repository: tgrk/hugo-nuo
           path: themes/hugo-nuo
+
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: website
+          path: .
+
+  build:
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: website
+          path: .
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -33,6 +44,9 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: lists
+        run: ls -lah
+
       - name: Upload via FTP
         uses: airvzxf/ftp-deployment-action@latest
         with:
@@ -41,6 +55,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           ftp_ssl_allow: "true"
           ftp_use_feat: "true"
-          local_dir: "public"
-          remote_dir: "/www/domains/wiso.cz"
+          local_dir: "public/"
+          remote_dir: "/www/domains/wiso.cz/"
           delete: "false"
