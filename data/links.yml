@@ -33,3 +33,9 @@
   link: https://hex.pm/packages/humanids
   avatar: /media/hex.png
   description: Generate Human Readable IDs
+
+07_elixir_ex_oura:
+  title: ExOura
+  link: https://hex.pm/packages/ex_oura
+  avatar: /media/hex.png
+  description:  Elixir client for Oura API
