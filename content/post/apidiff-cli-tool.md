@@ -3,6 +3,8 @@ title: "APIDiff CLI Tool"
 cover: 'https://asciinema.org/a/219377.svg?t=30'
 tags: ['API', 'HTTP', 'JSON', 'diff', 'changes', 'CI']
 date: 2019-01-02T13:28:00+01:00
+slug: "api-diff-cli-tool"
+aliases: ["/post/apidiff-cli-tool/"]
 draft: false
 description: "A CLI tool for comparing HTTP JSON APIs to ensure compatibility during migrations and refactoring"
 featured: true
