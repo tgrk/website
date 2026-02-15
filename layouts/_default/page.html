@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+{{ partial "site-nav" . }}
+
+<section class="wrapper style1 align-center">
+    <div class="inner">
+        <header>
+            <h1>{{ .Title }}</h1>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </header>
+        <div class="content align-left">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+{{ partial "footer" . }}
+
+{{ end }}
