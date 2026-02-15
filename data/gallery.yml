@@ -1,0 +1,48 @@
+####################### Gallery #########################
+title: "Projects"
+content: |
+  Here are some of my open-source projects and contributions to the community.
+style: "style1 medium onscroll-fade-in"
+id: "projects"
+pictures:
+  - title: "Human IDs"
+    content: "Generate Human Readable IDs in Elixir - memorable identifiers"
+    button: "View on Hex.pm"
+    url: "https://hex.pm/packages/humanids"
+    image: "/media/hex.svg"
+    thumb: "/media/hex.svg"
+    
+  - title: "ExOura"
+    content: "Elixir client for Oura Ring API - health data integration"
+    button: "View on Hex.pm"
+    url: "https://hex.pm/packages/ex_oura"
+    image: "/media/hex.svg"
+    thumb: "/media/hex.svg"
+
+  - title: "Erlpocket"
+    content: "Erlang library for Pocket API - save and manage reading lists"
+    button: "View on Hex.pm"
+    url: "https://hex.pm/packages/erlpocket"
+    image: "/media/hex.svg"
+    thumb: "/media/hex.svg"
+    
+  - title: "Lager Humio Backend"
+    content: "Lager logging backend for Humio.com - efficient log aggregation"
+    button: "View on Hex.pm"
+    url: "https://hex.pm/packages/lager_humio_backend"
+    image: "/media/github.svg"
+    thumb: "/media/github.svg"
+    
+  - title: "Changelog2JIRA"
+    content: "Parse CHANGELOG and send IDs to JIRA via webhook - automation tool"
+    button: "View on GitHub"
+    url: "https://github.com/tgrk/changelog2jira"
+    image: "/media/github.svg"
+    thumb: "/media/github.svg"
+
+  - title: "Simple Cache"
+    content: "Simple in-memory cache with expiration - lightweight caching solution"
+    button: "View on GitHub"
+    url: "https://github.com/tgrk/simple_cache"
+    image: "/media/github.svg"
+    thumb: "/media/github.svg"
