@@ -44,8 +44,8 @@
   {{ if .IsPage }}
   "headline": {{ .Title | jsonify }},
   "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ .Summary | truncate 150 | jsonify }}{{ end }},
-  {{ with .PublishDate }}"datePublished": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",{{ end }}
-  {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02T15:04:05Z07:00" }}",{{ end }}
+  {{ with .PublishDate }}"datePublished": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
+  {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
   "author": {
     "@type": "Person",
     "name": {{ .Params.author | default "Martin Wišo" | jsonify }},
