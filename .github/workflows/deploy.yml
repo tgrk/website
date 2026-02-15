@@ -2,28 +2,29 @@ name: Website build & deployment
 on:
   push:
     branches: [ master ]
-  pull_request:
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Fetch website
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          submodules: false
+          submodules: recursive
           fetch-depth: 0
-
-      - name: Checkout theme
-        uses: actions/checkout@v3
-        with:
-          repository: tgrk/hugo-nuo
-          path: themes/hugo-nuo
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
+
+      - name: Verify required header portraits
+        run: |
+          test -f static/img/headers/profile_portrait.jpg
+          test -f static/img/headers/profile_solden.jpg
+
+      - name: Verify active theme
+        run: grep -Eq '^[[:space:]]*theme[[:space:]]*=[[:space:]]*"hugo-story"[[:space:]]*$' config.toml
 
       - name: Build
         run: hugo --minify
