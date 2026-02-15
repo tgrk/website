@@ -1,0 +1,32 @@
+<!-- Projects Gallery -->
+<section class="wrapper style1 align-left" {{ with .id }} id="{{ . }}"{{ end }}>
+    <div class="inner align-left">
+        {{ with .title }}<h2>{{ . }}</h2>{{ end }}
+        {{ with .content }}<p>{{ . | safeHTML }}</p>{{ end }}
+
+        <div class="projects-gallery-list">
+            {{ range .pictures }}
+            <article class="project-gallery-item">
+                {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener" class="project-gallery-link-wrap">{{ end }}
+                    <div class="project-gallery-content{{ if not (or .thumb .image) }} no-thumb{{ end }}">
+                        {{ if or .thumb .image }}
+                        <div class="project-gallery-thumbnail">
+                            <img src="{{ or .thumb .image }}" alt="{{ .title }}" loading="lazy" decoding="async" width="120" height="80" />
+                        </div>
+                        {{ end }}
+                        <div class="project-gallery-info">
+                            {{ with .title }}<h3>{{ . }}</h3>{{ end }}
+                            {{ with .content }}<p class="project-gallery-description">{{ . }}</p>{{ end }}
+                            {{ if and .button .url }}
+                            <p class="project-gallery-link">
+                                <i class="fas fa-external-link-alt"></i>{{ .button }}
+                            </p>
+                            {{ end }}
+                        </div>
+                    </div>
+                {{ if .url }}</a>{{ end }}
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</section>

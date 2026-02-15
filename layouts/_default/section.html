@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+{{ partial "site-nav" . }}
+
+<section class="wrapper style1 align-center">
+    <div class="inner">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        <div class="content align-left">
+            {{ .Content }}
+            {{ if .Pages }}
+            <div class="blog-list">
+                {{ range .Pages }}
+                <article class="blog-item">
+                    <a href="{{ .RelPermalink }}" class="blog-item-link">
+                        <div class="blog-content{{ if not .Params.cover }} no-thumb{{ end }}">
+                            {{ if .Params.cover }}
+                            <div class="blog-thumbnail">
+                                <img src="{{ .Params.cover }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="120" height="80" />
+                            </div>
+                            {{ end }}
+                            <div class="blog-info">
+                                <h3>{{ .Title }}</h3>
+                                <p class="blog-summary">{{ .Description | default .Summary | truncate 150 }}</p>
+                                <p class="blog-meta">
+                                    {{ if .Date }}<span class="blog-date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+                                    <span class="blog-reading-time">{{ .ReadingTime }} min read</span>
+                                </p>
+                                {{ if .Params.tags }}
+                                <p class="blog-tags">{{ delimit .Params.tags " • " }}</p>
+                                {{ end }}
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+{{ partial "footer" . }}
+
+{{ end }}

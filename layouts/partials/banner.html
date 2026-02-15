@@ -1,0 +1,21 @@
+<!-- Banner -->
+<section class="banner {{ .style }}">
+    <div class="content">
+        {{ with .title }}<h1>{{ . }}</h1>{{ end }}
+        {{ with .subtitle }}<p class="major">{{ . | safeHTML }}</p>{{ end }}
+        {{ with .content }}<p>{{ . | safeHTML }}</p>{{ end }}
+        {{ if or .button .secondary_button }}
+        <ul class="actions stacked">
+            {{ with .button }}
+            <li><a href="{{ .link }}" class="button primary large wide smooth-scroll-middle">{{ .label }}</a></li>
+            {{ end }}
+            {{ with .secondary_button }}
+            <li><a href="{{ .link }}" class="button large wide smooth-scroll-middle">{{ .label }}</a></li>
+            {{ end }}
+        </ul>
+        {{ end }}
+    </div>
+    {{ with .image }}<div class="image">
+        <img src="{{ . }}" alt="{{ $.title }}" />
+    </div>{{ end }}
+</section>
