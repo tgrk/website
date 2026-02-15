@@ -1,63 +1,52 @@
+## -----------------------------------------------
+## Basic Configuration
+## -----------------------------------------------
+
+theme = "hugo-story"
 baseURL = "https://www.wiso.cz"
-languageCode = "en"
+languageCode = "en-US"
 title = "Martin Wišo"
-theme = "hugo-nuo"
 enableRobotsTXT = true
-pygmentsuseclasses = true
-PygmentsCodeFences = true
-canonifyurls = true
+canonifyURLs = false
 
-# Disqus Username
-disqusShortname = "wiso"
+## -----------------------------------------------
+## Hugo Built-in Features
+## -----------------------------------------------
 
-# Google Analytics UA number
-googleAnalytics = "G-9G56ZYB7VV"
+disableKinds = ["taxonomy"]
+# googleAnalytics = "G-9G56ZYB7VV"  # Disabled - consider privacy-first alternative
 
-# Copyright of your post
-copyright = "© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce."
+## -----------------------------------------------
+## Site Parameters
+## -----------------------------------------------
 
-# Initial site menu, you can extend menu with content.
-[[menu.main]]
-  name = "Home"
-  weight = 10
-  identifier = "home"
-  url = "/"
+[Params]
+  description = "Experienced Software Engineer specializing in distributed systems, Erlang/Elixir, and cloud-native development. Based in Berlin, Germany with 25+ years of experience."
+  author = "Martin Wišo"
+  keywords = ["software engineer", "erlang", "elixir", "golang", "distributed systems", "berlin", "functional programming", "cloud-native"]
+  tagline = "Experienced Software Engineer & Technical Lead"
+  defaultImage = "/images/profile_portrait.jpg"
 
-# [[menu.main]]
-#   name = "Resume"
-#   weight = 20
-#   identifier = "resume"
-#   url = "/resume"
+[Params.style]
+  custom = ["sass/custom.scss"]
 
-[[menu.main]]
-  name = "Tags"
-  weight = 40
-  identifier = "tags"
-  url = "/tags"
-
-# Add your own params here
-[params]
-  author = "Martin Wiso"
-  avatar = "/images/profile_portrait.jpg"
-  seotitle = "Martin Wiso - Personal Site"
-  subtitle = "Personal Site"
-  description = "Software Engineering, Erlang/OTP, Elixir, Golang, Javascript, Functional Programming, FP, DistSys, Distributed Systems, API, REST"
-  paginate = 10
-
-  # Choose your social networks
+[Params.social]
   email = "martin@wiso.cz"
-  github = "tgrk"
-  twitter = "tajgur"
-  linkedin = "martinwiso"
-  instagram = "martinwiso"
-  # google = "googlplus_id_number"
-  # youtube = "youtube_username"
-  # vimeo = "vimeo_username"
-  # medium = "medium_username"
+  github = "https://github.com/tgrk"
+  twitter = "https://twitter.com/tajgur"
+  linkedin = "https://www.linkedin.com/in/martinwiso/"
+  instagram = "https://www.instagram.com/martinwiso/"
 
-  # Google Webmaster - https://www.google.com/webmasters/
-  googleSiteVerification = "OlG8d1-VjmP0SViMHeKB-RDJdflPtkrQnIGFSvMXrcA"
+[Params.asset]
+  fontawesome_css = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+  ]
+  fontawesome_js = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
+  ]
 
-  # Bing Webmaster
-  # https://www.bing.com/toolbox/webmaster/
-  # msValidate = "22596E34341DD1D17D6022C44647E587"
+[Params.favicon]
+  use = true
+  logo_jpg = "/img/favicon-32x32.png"
+  logo_png = "/img/favicon-32x32.png"
+  logo_svg = "/img/android-chrome-192x192.png"
