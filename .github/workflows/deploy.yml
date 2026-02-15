@@ -29,6 +29,9 @@ jobs:
       - name: Build
         run: hugo --minify --cleanDestinationDir
 
+      - name: Prune unused theme assets
+        run: rm -rf public/images/      
+
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
