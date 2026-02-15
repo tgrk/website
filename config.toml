@@ -25,7 +25,7 @@ canonifyURLs = false
   author = "Martin Wišo"
   keywords = ["software engineer", "erlang", "elixir", "golang", "distributed systems", "berlin", "functional programming", "cloud-native"]
   tagline = "Experienced Software Engineer & Technical Lead"
-  defaultImage = "/images/profile_portrait.jpg"
+  defaultImage = "/img/headers/profile_portrait.jpg"
 
 [Params.style]
   custom = ["sass/custom.scss"]

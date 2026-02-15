@@ -1,7 +1,7 @@
 ---
 title: 'Running Ubuntu XMonad on X1 Carbon 5th generation'
 author: 'Martin Wiso'
-cover: '/media/github.svg'
+cover: '/media/github.png'
 tags: ['xmonad', 'linux', 'lenovo', 'ubuntu']
 date: 2018-02-04T22:12:52+01:00
 draft: true
