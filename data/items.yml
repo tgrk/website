@@ -1,0 +1,19 @@
+####################### Items #########################
+title: "Featured Writing"
+content: |
+  Selected posts on distributed systems, Elixir/Erlang, and practical software engineering.
+  <br /><br/>
+  Topics include: <strong>Erlang/OTP</strong>, <strong>Elixir</strong>, <strong>AI workflows</strong>, and <strong>system reliability</strong>.
+style: "style3 medium onscroll-fade-in"
+id: "blog"
+items:
+  - name: "Elixir for Pythonistas"
+    content: "A practical introduction to Elixir and OTP from a Python engineer's perspective."
+    style: "solid style2 major fa-code"
+    url: "/post/pyladies-2018-elixir-for-pythonistas/"  
+    
+  - name: "Code BEAM STO 2018"
+    content: "Key notes from Code BEAM Stockholm on BEAM tooling, performance, and ecosystem trends."
+    style: "solid style2 major fa-users"
+    url: "/post/code-beam-sto-2018-notes/"
+  
