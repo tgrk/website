@@ -1,15 +1,22 @@
 name = "Martin Wiso"
 
-# These two variable definitions need to go before [contact], etc.
+summary = "Backend engineer and systems architect focused on reliable distributed systems with Erlang/OTP and Elixir. I design backend and platform architecture that keeps complex products simple to run, from fintech and tax platforms to media and streaming systems, and more recently practical LLM-assisted workflows."
+
 languages = [
   "Czech (native)",
-  "English (business)",
-  "Deutsch (conversational)"
+  "English (professional working)",
+  "German (limited working)",
+  "Slovak (limited working)",
+  "Latin (elementary)"
 ]
 
 interests = [
-  "Programming",
-  "Martial Arts",
+  "Distributed Systems",
+  "Functional Programming",
+  "AI Tooling",
+  "Platform Architecture",
+  "Running",
+  "Martin Arts",
   "Books",
   "Art"
 ]
@@ -31,74 +38,261 @@ interests = [
     url = "//www.wiso.cz"
     title = "www.wiso.cz"
 
+  [[contact.list]]
+    class = "linkedin"
+    url = "//www.linkedin.com/in/martinwiso"
+    title = "linkedin.com/in/martinwiso"
+
 [education]
 
   [[education.list]]
-    degree = "M.Sc. Computer Science"
-    school = "University of Universe"
-    year = "2006 - 2008"
-    description = "Thesis: Automatic Peeling Bananas."
+    degree = "Informational science, HCI"
+    school = "Charles University"
+    year = "1999 - 2006"
+    description = ""
 
   [[education.list]]
-    degree = "B.S. Computer Science"
-    school = "University of Universe"
-    year = "2002 - 2006"
-    description = "Courses: Algorithms, Computer Architecture."
-
+    degree = "High School"
+    school = "Gymnasium Minerva"
+    year = "1994 - 1999"
+    description = ""
 
 [experience]
 
   [[experience.list]]
-    name = "Google Cloud"
-    company = "Google, Inc."
-    location = "Mountain View, CA, USA"
-    title = "Software Engineer"
-    year = "01/2016 - now"
-    description = """Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Suspendisse elit quam, maximus eget ex eget, vehicula ultricies nunc.
-      Nam sodales eu ipsum non ultricies."""
-
-  [[experience.list]]
-    name = "Amazon Web Services"
-    company = "Amazon"
-    location = "Seattle, WA, USA"
-    title = "Software Engineer"
-    year = "09/2014 - 12/2015"
+    name = "Universal Music Group"
+    company = "Universal Music Group"
+    company_url = "https://www.universalmusic.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=universalmusic.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Senior Software Engineer"
+    year = "06/2024 - Present"
     projects = [
-      """Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Suspendisse elit quam""",
-      """Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Suspendisse elit quam""",
-      """Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-         Suspendisse elit quam""",
+      "Building and maintaining the Stage+ video and audio streaming platform for classical music."
     ]
 
   [[experience.list]]
-    name = "Aliyun"
-    company = "Alibaba, Inc."
-    location = "Hangzhou, Zhejiang, China"
-    title = "Software Engineer"
-    year = "01/2009 - 08/2014"
+    name = "Taxfix"
+    company = "Taxfix"
+    company_url = "https://taxfix.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=taxfix.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Senior Staff Software Engineer / Tech Lead"
+    year = "10/2022 - 05/2024"
     projects = [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Set technical direction for a next-generation tax filing platform using automated reasoning and a custom DSL.",
+      "Scaled architecture and engineering practices while remaining hands-on.",
+      "Built and grew an internal team, including hiring and mentoring."
     ]
+
+  [[experience.list]]
+    name = "Taxfix"
+    company = "Taxfix"
+    company_url = "https://taxfix.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=taxfix.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Staff Software Engineer / Tech Lead"
+    year = "03/2020 - 09/2022"
+    projects = [
+      "Led backend and platform initiatives for core tax product workflows.",
+      "Improved service reliability and long-term maintainability."
+    ]
+
+  [[experience.list]]
+    name = "Taxfix"
+    company = "Taxfix"
+    company_url = "https://taxfix.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=taxfix.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Senior Software Engineer"
+    year = "11/2019 - 02/2020"
+    projects = [
+      "Contributed to backend systems supporting tax filing workflows and product scale."
+    ]
+
+  [[experience.list]]
+    name = "IDAGIO"
+    company = "IDAGIO"
+    company_url = "https://www.idagio.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=idagio.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Senior Software Engineer"
+    year = "11/2018 - 11/2019"
+    projects = [
+      "Maintained and extended microservice APIs on Heroku with improved observability and availability.",
+      "Rewrote legacy Node.js services into Go backend components.",
+      "Introduced unified Swagger/Swagger UI for API exploration and collaboration."
+    ]
+
+  [[experience.list]]
+    name = "solarisBank AG"
+    company = "solarisBank AG"
+    company_url = "https://www.solarisgroup.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=solarisgroup.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Senior Elixir Developer"
+    year = "12/2017 - 10/2018"
+    projects = [
+      "Built and maintained lending API products in the Consumer and SME Loan domain.",
+      "Worked across Elixir/Erlang, RDBMS, Redis, Docker, and Concourse."
+    ]
+
+  [[experience.list]]
+    name = "QT Mobilitätsservice (Qixxit)"
+    company = "QT Mobilitätsservice GmbH (Qixxit)"
+    company_url = "https://www.qixxit.de"
+    company_favicon = "https://www.google.com/s2/favicons?domain=qixxit.de&sz=64"
+    location = "Berlin, Germany"
+    title = "Senior Backend Engineer"
+    year = "06/2017 - 11/2017"
+    projects = [
+      "Integrated third-party APIs and improved route-planning backend scalability.",
+      "Stabilized and extended an Erlang/OTP prototype into a production replacement service."
+    ]
+
+  [[experience.list]]
+    name = "Talon.One"
+    company = "Talon.One"
+    company_url = "https://www.talon.one"
+    company_favicon = "https://www.google.com/s2/favicons?domain=talon.one&sz=64"
+    location = "Berlin, Germany"
+    title = "Software Engineer"
+    year = "08/2016 - 06/2017"
+    projects = [
+      "Built backend capabilities for a SaaS rule engine platform on AWS.",
+      "Contributed to performance work reaching 100k RPS on basic workflows."
+    ]
+
+  [[experience.list]]
+    name = "SumUp"
+    company = "SumUp"
+    company_url = "https://sumup.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=sumup.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Software Developer"
+    year = "02/2016 - 08/2016"
+    projects = [
+      "Implemented contactless NFC reader support in backend card payment systems.",
+      "Supported MasterCard and VISA certification preparation and backend quality improvements."
+    ]
+
+  [[experience.list]]
+    name = "Game Analytics"
+    company = "Game Analytics"
+    company_url = "https://gameanalytics.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=gameanalytics.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Senior Big Data Engineer"
+    year = "09/2013 - 02/2016"
+    projects = [
+      "Scaled a big-data streaming system from ~5k to ~60k RPS and operated traffic around 5B events/day.",
+      "Contributed to Erlang-based realtime analytics and Hadoop/Spark batch processing components."
+    ]
+
+  [[experience.list]]
+    name = "SumUp"
+    company = "SumUp"
+    company_url = "https://sumup.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=sumup.com&sz=64"
+    location = "Berlin, Germany"
+    title = "Erlang Software Developer"
+    year = "11/2012 - 09/2013"
+    projects = [
+      "Developed EMV backend systems for card payments with fault-tolerant Erlang architecture.",
+      "Implemented ISO8583/GICC integrations and contributed to certification efforts."
+    ]
+
+  [[experience.list]]
+    name = "OpenLab Ltd."
+    company = "OpenLab Ltd."
+    company_url = "http://www.amscloud.com"
+    company_favicon = "https://www.google.com/s2/favicons?domain=amscloud.com&sz=64"
+    location = "Prague, Czech Republic"
+    title = "Cofounder"
+    year = "09/2008 - 11/2012"
+    projects = [
+      "Co-designed and built a digital signage platform with Erlang/OTP, messaging, and cloud operations.",
+      "Led architecture and implementation across backend and platform components."
+    ]
+
+  [[experience.list]]
+    name = "Earlier Roles Summary"
+    company = "Selected Earlier Roles"
+    location = "Prague, Czech Republic"
+    title = "Web Specialist, Software Engineer, Analyst"
+    year = "2000 - 2008"
+    projects = [
+      "Held progressive roles across HSBC Bank Prague Branch, self-employed web development, Bonicom, eAdvise (Vodafone outsourcing), Emris, Logos, and e-Fractal.",
+      "Worked across IT support, web and backend development, SharePoint/.NET ecosystems, Java enterprise projects, and early team leadership responsibilities.",
+      "Built broad foundations in full software lifecycle delivery, client-facing consulting, and cross-functional collaboration in banking and enterprise domains."
+    ]
+
+[certification]
+
+  [[certification.list]]
+    name = "USMx - STV1.3x: Formal Software Verification"
+    issuer = "edX"
+
+  [[certification.list]]
+    name = "Introduction to Functional Programming (Erik Meijer)"
+    issuer = "edX Honor Code Certificate"
+
+  [[certification.list]]
+    name = "Introduction to Computer Science and Programming Using Python (MIT)"
+    issuer = "edX Honor Code Certificate"
+
+  [[certification.list]]
+    name = "ALGS202x: Graph Algorithms"
+    issuer = "edX Honor Code Certificate"
+
+  [[certification.list]]
+    name = "Introduction to Big Data with Apache Spark"
+    issuer = "edX Honor Code Certificate"
+
+[training]
+
+  [[training.list]]
+    name = "Automated reasoning and DSL-driven tax domain modeling"
+    provider = "Taxfix (internal platform and domain training)"
+
+  [[training.list]]
+    name = "EMV, payment processing, and card scheme certification practices"
+    provider = "SumUp (MasterCard/VISA certification workstreams)"
 
 [skill]
 
   [[skill.list]]
     name = "Erlang/OTP"
-    level = "90"
+    level = "95"
 
   [[skill.list]]
     name = "Elixir"
+    level = "95"
+
+  [[skill.list]]
+    name = "Distributed Systems"
+    level = "95"
+
+  [[skill.list]]
+    name = "System Architecture"
     level = "90"
 
   [[skill.list]]
-    name = "Golang"
+    name = "Go"
+    level = "85"
+
+  [[skill.list]]
+    name = "GraphQL"
     level = "80"
 
   [[skill.list]]
-    name = "Linux"
+    name = "LiveView"
     level = "80"
+
+  [[skill.list]]
+    name = "Algolia"
+    level = "75"
+
+  [[skill.list]]
+    name = "Javascript"
+    level = "70"
