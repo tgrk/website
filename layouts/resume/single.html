@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+{{ partial "site-nav" . }}
+
+{{ $resume := site.Data.resume }}
+
+<section class="wrapper style1 align-center">
+    <div class="inner">
+        <header>
+            <h1>{{ .Title }}</h1>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </header>
+        <div class="content align-left">
+            {{ with $resume.summary }}<p>{{ . }}</p>{{ end }}
+
+            {{ with $resume.skill.list }}
+            <h2>Core Skills</h2>
+            <ul>
+                {{ range . }}
+                <li><strong>{{ .name }}</strong> ({{ .level }}%)</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with $resume.experience.list }}
+            <h2>Experience</h2>
+            {{ range . }}
+            <article>
+                <h3>{{ .title }}{{ with .company }} - {{ . }}{{ end }}</h3>
+                <p>{{ .year }}{{ with .location }} | {{ . }}{{ end }}</p>
+                {{ with .description }}<p>{{ . }}</p>{{ end }}
+                {{ with .projects }}
+                <ul>
+                    {{ range . }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+            </article>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+{{ partial "footer" . }}
+
+{{ end }}
