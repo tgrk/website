@@ -7,7 +7,7 @@
             {{ with .Site.Params.social.bluesky }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-bluesky"><span class="label">bluesky</span></a></li>{{end}}
             {{ with .Site.Params.social.instagram }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>{{end}}
             {{ with .Site.Params.social.linkedin }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>{{end}}
-            {{ with .Site.Params.social.email }}<li><a target="_blank" href="mailto:{{.}}" class="fav icon style2 fa-envelope"><span class="label">Email</span></a></li>{{end}}
+            {{ with .Site.Params.social.email }}<li><a target="_blank" rel="noopener noreferrer" href="mailto:{{.}}" class="fav icon style2 fa-envelope"><span class="label">Email</span></a></li>{{end}}
         </ul>
         <p>&copy; {{ now.Format "2006" }} {{ or .Site.Params.author .Site.Title }}<span class="footerspacer icon solid fa-diamond"></span>
             Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/hugo-story">Hugo Story</a> by <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/">CaressOfSteel</a></p>
