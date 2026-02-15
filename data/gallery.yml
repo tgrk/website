@@ -1,47 +1,47 @@
 ####################### Gallery #########################
 title: "Projects"
 content: |
-  Here are some of my open-source projects and contributions to the community.
+  A selection of open-source libraries and tools I have built and maintained.
 style: "style1 medium onscroll-fade-in"
 id: "projects"
 pictures:
   - title: "Human IDs"
-    content: "Generate Human Readable IDs in Elixir - memorable identifiers"
+    content: "Elixir library for generating compact, human-readable identifiers."
     button: "View on Hex.pm"
     url: "https://hex.pm/packages/humanids"
     image: "/media/hex.svg"
     thumb: "/media/hex.svg"
     
   - title: "ExOura"
-    content: "Elixir client for Oura Ring API - health data integration"
+    content: "Elixir client for the Oura API with a clean integration layer."
     button: "View on Hex.pm"
     url: "https://hex.pm/packages/ex_oura"
     image: "/media/hex.svg"
     thumb: "/media/hex.svg"
 
   - title: "Erlpocket"
-    content: "Erlang library for Pocket API - save and manage reading lists"
+    content: "Erlang client for the Pocket API to save and manage reading lists."
     button: "View on Hex.pm"
     url: "https://hex.pm/packages/erlpocket"
     image: "/media/hex.svg"
     thumb: "/media/hex.svg"
     
   - title: "Lager Humio Backend"
-    content: "Lager logging backend for Humio.com - efficient log aggregation"
+    content: "Lager backend for shipping Erlang logs to Humio efficiently."
     button: "View on Hex.pm"
     url: "https://hex.pm/packages/lager_humio_backend"
     image: "/media/github.svg"
     thumb: "/media/github.svg"
     
   - title: "Changelog2JIRA"
-    content: "Parse CHANGELOG and send IDs to JIRA via webhook - automation tool"
+    content: "CLI utility that extracts issue keys from changelogs and updates Jira via webhook."
     button: "View on GitHub"
     url: "https://github.com/tgrk/changelog2jira"
     image: "/media/github.svg"
     thumb: "/media/github.svg"
 
   - title: "Simple Cache"
-    content: "Simple in-memory cache with expiration - lightweight caching solution"
+    content: "Lightweight in-memory cache with TTL support for BEAM services."
     button: "View on GitHub"
     url: "https://github.com/tgrk/simple_cache"
     image: "/media/github.svg"

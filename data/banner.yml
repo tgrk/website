@@ -1,0 +1,14 @@
+####################### Banner #########################
+style: "style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
+title: "Martin Wišo"
+subtitle: |
+  Senior Software Engineer | Distributed Systems | Berlin
+content: |
+  I design and ship reliable distributed systems, API platforms, and AI-assisted tooling for product and infrastructure teams.
+button:
+  label: "Read Writing"
+  link: "#blog"
+secondary_button:
+  label: "Discuss Consulting"
+  link: "#projects"
+image: "/images/profile_portrait.jpg"
