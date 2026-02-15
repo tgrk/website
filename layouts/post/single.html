@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+{{ partial "site-nav" . }}
+
+<section class="wrapper style1 align-center">
+    <div class="inner">
+        <header>
+            <h1>{{ .Title }}</h1>
+            <p class="post-meta">
+                {{ if .Date }}<span>{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+                <span>{{ .ReadingTime }} min read</span>
+            </p>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </header>
+
+        {{ $cover := .Params.cover | default .Site.Params.defaultImage }}
+        {{ if $cover }}
+        <div class="post-cover">
+            <img src="{{ $cover }}" alt="{{ .Title }}" loading="eager" decoding="async" />
+        </div>
+        {{ end }}
+
+        <div class="content align-left">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+
+{{ partial "footer" . }}
+
+{{ end }}

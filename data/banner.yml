@@ -8,4 +8,7 @@ content: |
 button:
   label: "Read Writing"
   link: "#blog"
-image: "/images/profile_portrait.jpg"
+image: "/img/headers/profile_portrait.jpg"
+images:
+  - "/img/headers/profile_portrait.jpg"
+  - "/img/headers/profile_solden.jpg"

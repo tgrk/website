@@ -17,10 +17,10 @@ body {
 }
 
 a {
-  color: $accent;
+  color: $text-primary;
 
   &:hover {
-    color: $accent-hover;
+    color: #111a22;
   }
 }
 
@@ -210,11 +210,36 @@ h6 {
 .project-link,
 .project-gallery-link {
   font-size: 0.85rem;
-  color: $accent;
+  color: $text-secondary;
   margin: 0;
   display: flex;
   align-items: center;
   gap: 0.4rem;
+}
+
+.post-meta {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: $text-light;
+  margin: 0 0 1rem 0;
+}
+
+.post-cover {
+  margin: 0 auto 1.25rem auto;
+  max-width: 900px;
+  border: 1px solid $border-light;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: $bg-white;
+
+  img {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 900px) {

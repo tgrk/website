@@ -15,7 +15,20 @@
         </ul>
         {{ end }}
     </div>
-    {{ with .image }}<div class="image">
-        <img src="{{ . }}" alt="{{ $.title }}" />
-    </div>{{ end }}
+    {{ $bannerImages := .images }}
+    {{ if and (not $bannerImages) .image }}{{ $bannerImages = slice .image }}{{ end }}
+    {{ if $bannerImages }}
+    <div class="image">
+        <img id="hero-banner-image" src="{{ index $bannerImages 0 }}" alt="{{ $.title }}" />
+    </div>
+    <script>
+      (function () {
+        var images = {{ $bannerImages | jsonify | safeJS }};
+        var imageEl = document.getElementById("hero-banner-image");
+        if (!imageEl || !images || images.length < 2) return;
+        var randomIndex = Math.floor(Math.random() * images.length);
+        imageEl.src = images[randomIndex];
+      })();
+    </script>
+    {{ end }}
 </section>
