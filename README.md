@@ -1,58 +1,91 @@
-# Hugo based website
+# Personal Website (Hugo)
 
-## Publish new content
+Contributor runbook for this repo.
 
-  $ hugo new post/my-new-post.md
-  $ hugo
+The site uses the `hugo-story` theme with local overrides for layout, navigation, SEO, and styling. Content is mostly data-driven from `content/` and `data/`.
 
-## Development with reload
+## Quickstart
 
-  $ hugo server
+Prerequisites:
+- Hugo Extended (required for SCSS pipeline)
+- `rg` (ripgrep) for local validation scripts
 
-## Update hugo
+Run locally:
 
-  $ cd ~/Projects/libs
-  $ git clone https://github.com/gohugoio/hugo.git
-  $ cd hugo
-  $ go install --tags extended
-
-## Theme customizations
-
-Fetch submodules
-    $  git submodule update --init --recursive
-
-`/layouts/partials/footer.html`
-
-```html
-<!-- Ybug code -->
-<script type='text/javascript'>
-  (function () {
-    window.ybug_settings = { "id": "b2cg6w01cs" };
-    var ybug = document.createElement('script'); ybug.type = 'text/javascript'; ybug.async = true;
-    ybug.src = 'https://ybug.io/api/v1/button/' + window.ybug_settings.id + '.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ybug, s);
-  })();
-</script>
-<!-- Ybug code end -->
+```bash
+hugo server
 ```
 
-```diff
-diff --git a/layouts/partials/footer.html b/layouts/partials/footer.html
-index b23f55f..13da3e3 100644
---- a/layouts/partials/footer.html
-+++ b/layouts/partials/footer.html
-@@ -47,3 +47,13 @@ var _hmt = _hmt || [];
- })();
- </script>
- {{ end }}
-+<!-- Ybug code -->
-+<script type='text/javascript'>
-+  (function () {
-+    window.ybug_settings = { "id": "b2cg6w01cs" };
-+    var ybug = document.createElement('script'); ybug.type = 'text/javascript'; ybug.async = true;
-+    ybug.src = 'https://ybug.io/api/v1/button/' + window.ybug_settings.id + '.js';
-+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ybug, s);
-+  })();
-+</script>
-+<!-- Ybug code end -->
+Build production output:
+
+```bash
+hugo --panicOnWarning --minify
+```
+
+Create a new post:
+
+```bash
+hugo new post/my-new-post.md
+```
+
+## Project Structure
+
+- `config.toml`: site config, metadata, social links, theme settings, custom SCSS registration.
+- `content/`: page and post content.
+- `data/`: homepage and list datasets (`banner.yml`, `gallery.yml`, `projects.yml`, `resume.toml`, etc.).
+- `layouts/`: local template overrides and custom page layouts.
+- `assets/sass/custom.scss`: site-specific styles on top of theme defaults.
+- `scripts/`: prepublish and regression checks.
+- `themes/hugo-story/`: upstream theme source.
+
+## Editing Guide
+
+Homepage and navigation:
+- `layouts/index.html`: homepage section composition.
+- `layouts/partials/site-nav.html`: sticky nav and mobile menu toggle.
+- `data/banner.yml`: hero copy and images.
+- `layouts/partials/featured-posts.html`: featured writing section.
+- `data/gallery.yml`: homepage projects gallery section.
+
+Pages:
+- `content/about.md`: about page content.
+- `content/projects.md` + `layouts/_default/links.html`: projects page content/template.
+- `content/resume.md` + `layouts/resume/single.html` + `data/resume.toml`: resume page content/template/data.
+
+Posts:
+- `content/post/*.md`: full writing archive.
+- Set `featured: true` in post front matter to show a post in homepage featured writing.
+- Set valid `cover` and `description` in front matter.
+
+Canonical projects source:
+- Keep projects in `data/projects.yml` for the full projects page.
+
+## Theme and Approach Notes
+
+- Theme base: `hugo-story`.
+- Strategy: minimal local overrides in `layouts/` and `assets/` instead of deep theme forking.
+- Relaunch direction:
+  - split CTA emphasis (writing first, consulting/contact secondary),
+  - curated featured posts on homepage while keeping full archive on `/post/`,
+  - dedicated non-blog UX for `/projects/`, `/resume/`, `/privacy/`, and `/imprint/`.
+
+## Prepublish Checks
+
+Run before publishing:
+
+```bash
+./scripts/prepublish-check.sh
+```
+
+This script verifies:
+- production build succeeds,
+- no placeholder/missing post covers,
+- no missing project media references,
+- critical pages are generated and non-empty,
+- basic metadata formatting sanity checks.
+
+Fast regression check:
+
+```bash
+./scripts/check-link-targets.sh
 ```
