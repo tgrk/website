@@ -36,5 +36,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           log-level: "standard"
+          dangerous-clean-slate: true
           local-dir: "public/"
           server-dir: "/www/domains/wiso.cz/"
