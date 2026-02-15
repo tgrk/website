@@ -10,7 +10,7 @@
             <h1>{{ .Title }}</h1>
             {{ with .Description }}<p>{{ . }}</p>{{ end }}
         </header>
-        <div class="content align-left">
+        <div class="content align-left resume-content">
             {{ with $resume.summary }}<p>{{ . }}</p>{{ end }}
 
             {{ with $resume.skill.list }}
@@ -22,15 +22,70 @@
             </ul>
             {{ end }}
 
+            {{ with $resume.certification.list }}
+            <h2>Certifications</h2>
+            <ul>
+                {{ range . }}
+                <li>
+                    <strong>{{ .name }}</strong>
+                    {{ with .issuer }} - {{ . }}{{ end }}
+                    {{ with .year }} ({{ . }}){{ end }}
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with $resume.training.list }}
+            <h2>Training</h2>
+            <ul>
+                {{ range . }}
+                <li>
+                    <strong>{{ .name }}</strong>
+                    {{ with .provider }} - {{ . }}{{ end }}
+                    {{ with .year }} ({{ . }}){{ end }}
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+
+            {{ with $resume.education.list }}
+            <h2>Education</h2>
+            <ul>
+                {{ range . }}
+                <li>
+                    <strong>{{ .school }}</strong> - {{ .degree }} ({{ .year }})
+                </li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        
+
             {{ with $resume.experience.list }}
             <h2>Experience</h2>
             {{ range . }}
-            <article>
-                <h3>{{ .title }}{{ with .company }} - {{ . }}{{ end }}</h3>
-                <p>{{ .year }}{{ with .location }} | {{ . }}{{ end }}</p>
-                {{ with .description }}<p>{{ . }}</p>{{ end }}
-                {{ with .projects }}
-                <ul>
+            {{ $job := . }}
+            <article class="resume-entry">
+                <h3 class="resume-company">
+                    {{ with $job.company }}
+                    <span class="resume-company-name">
+                        {{ if $job.company_url }}
+                        <a href="{{ $job.company_url }}" target="_blank" rel="noopener noreferrer" class="resume-company-link">
+                            {{ with $job.company_favicon }}
+                            <img src="{{ . }}" alt="" loading="lazy" decoding="async" width="16" height="16" class="resume-company-icon" />
+                            {{ end }}
+                            {{ . }}
+                        </a>
+                        {{ else }}
+                        {{ . }}
+                        {{ end }}
+                    </span>
+                    {{ end }}
+                </h3>
+                <p class="resume-title"><strong>{{ $job.title }}</strong></p>
+                <p class="resume-meta">{{ $job.year }}{{ with $job.location }} | {{ . }}{{ end }}</p>
+                {{ with $job.description }}<p>{{ . }}</p>{{ end }}
+                {{ with $job.projects }}
+                <ul class="resume-projects">
                     {{ range . }}
                     <li>{{ . }}</li>
                     {{ end }}
@@ -39,7 +94,8 @@
             </article>
             {{ end }}
             {{ end }}
-        </div>
+
+            </div>
     </div>
 </section>
 
