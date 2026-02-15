@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+{{ partial "site-nav" . }}
+
+<section class="wrapper style1 align-center">
+    <div class="inner">
+        <h1>{{ .Title }}</h1>
+        <div class="content align-left">
+            {{ .Content }}
+            
+            {{ if site.Data.projects }}
+            <div class="projects-list">
+                {{ range $value := site.Data.projects }}
+                <article class="project-item">
+                    <a href="{{ $value.link }}" target="_blank" rel="noopener" class="project-item-link">
+                        <div class="project-content{{ if not $value.avatar }} no-thumb{{ end }}">
+                            {{ if $value.avatar }}
+                            <div class="project-thumbnail">
+                                <img src="{{ $value.avatar }}" alt="{{ $value.title }}" loading="lazy" decoding="async" width="48" height="48" />
+                            </div>
+                            {{ end }}
+                            <div class="project-info">
+                                <h3>{{ $value.title }}</h3>
+                                <p class="project-description">{{ $value.description }}</p>
+                                <p class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    {{ if (findRE "github.com" $value.link) }}
+                                        View on GitHub
+                                    {{ else if (findRE "hex.pm" $value.link) }}
+                                        View on Hex.pm
+                                    {{ else }}
+                                        Visit Project
+                                    {{ end }}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+{{ partial "footer" . }}
+
+{{ end }}
