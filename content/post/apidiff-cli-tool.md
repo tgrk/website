@@ -3,7 +3,9 @@ title: "APIDiff CLI Tool"
 cover: 'https://asciinema.org/a/219377.svg?t=30'
 tags: ['API', 'HTTP', 'JSON', 'diff', 'changes', 'CI']
 date: 2019-01-02T13:28:00+01:00
-draft: true
+draft: false
+description: "A CLI tool for comparing HTTP JSON APIs to ensure compatibility during migrations and refactoring"
+featured: true
 ---
 
 While rewriting some of [IDAGIO](https://asciinema.org) micro-services back to monolith I came across a need to be able to compare HTTP JSON based APIs for both payload and HTTP header changes. Sadly all tools I came across were either too simple, lacking flexibility or lacking CLI interface. Well, then I decided it should be easy to write new one CLI tool...

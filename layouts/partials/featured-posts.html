@@ -1,0 +1,34 @@
+<!-- Featured Blog Posts -->
+<section class="wrapper style1 align-left" {{ with .id }} id="{{ . }}"{{ end }}>
+    <div class="inner align-left">
+        {{ with .title }}<h2>{{ . }}</h2>{{ end }}
+        {{ with .content }}<p>{{ . | safeHTML }}</p>{{ end }}
+        <div class="blog-list">
+            {{ $featured := where (where site.RegularPages "Section" "post") "Params.featured" true }}
+            {{ range $featured }}
+            <article class="blog-item">
+                <a href="{{ .RelPermalink }}" class="blog-item-link">
+                    <div class="blog-content{{ if not .Params.cover }} no-thumb{{ end }}">
+                        {{ if .Params.cover }}
+                        <div class="blog-thumbnail">
+                            <img src="{{ .Params.cover }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="120" height="80" />
+                        </div>
+                        {{ end }}
+                        <div class="blog-info">
+                            <h3>{{ .Title }}</h3>
+                            <p class="blog-summary">{{ .Description | default .Summary | truncate 160 }}</p>
+                            <p class="blog-meta">
+                                {{ if .Date }}<span class="blog-date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+                                <span class="blog-reading-time">{{ .ReadingTime }} min read</span>
+                            </p>
+                            {{ if .Params.tags }}
+                            <p class="blog-tags">{{ delimit .Params.tags " • " }}</p>
+                            {{ end }}
+                        </div>
+                    </div>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</section>

@@ -5,6 +5,8 @@ cover: '/media/posts/codebeam_sto1.jpg'
 tags: ['Erlang', 'BEAM', 'conference']
 date: 2018-07-02T16:34:12+02:00
 draft: false
+description: "Highlights and practical notes from Code BEAM Stockholm 2018 sessions."
+featured: true
 ---
 
 This year I finally attended one of the best Erlang and BEAM related conference in Europe. There is no better place te learn more about BEAM than in Stockholm. This post is a short highlight of what I found interesting during talks I attended. I also finally managed to get signed my Programming Erlang book by no other than Joe Armstrong.
