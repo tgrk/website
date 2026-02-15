@@ -13,7 +13,7 @@ canonifyURLs = false
 ## Hugo Built-in Features
 ## -----------------------------------------------
 
-disableKinds = ["taxonomy"]
+# Keep taxonomy indexes enabled so /tags/ resolves with an index page.
 # googleAnalytics = "G-9G56ZYB7VV"  # Disabled - consider privacy-first alternative
 
 ## -----------------------------------------------

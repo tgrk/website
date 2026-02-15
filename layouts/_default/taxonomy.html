@@ -1,0 +1,28 @@
+{{ define "main" }}
+
+{{ partial "site-nav" . }}
+
+<section class="wrapper style1 align-center">
+  <div class="inner">
+    <h1>{{ .Title }}</h1>
+    <p>Browse posts by {{ .Data.Plural }}.</p>
+    <div class="content align-left">
+      {{ if .Data.Terms }}
+      <ul>
+        {{ range .Data.Terms.Alphabetical }}
+        <li>
+          <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+          ({{ .Count }})
+        </li>
+        {{ end }}
+      </ul>
+      {{ else }}
+      <p>No entries found.</p>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ partial "footer" . }}
+
+{{ end }}
