@@ -1,7 +1,7 @@
 ---
 title: 'My Favorite Tech Talks'
 author: 'Martin Wiso'
-cover: '/media/github.svg'
+cover: '/media/github.png'
 tags: ['talks', 'technology', 'software']
 date: 2018-02-04T22:15:37+01:00
 draft: true

@@ -27,7 +27,7 @@ jobs:
         run: grep -Eq '^[[:space:]]*theme[[:space:]]*=[[:space:]]*"hugo-story"[[:space:]]*$' config.toml
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --cleanDestinationDir
 
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.3

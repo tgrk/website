@@ -82,7 +82,7 @@
   "@type": "Person",
   "name": "Martin Wišo",
   "url": "{{ .Site.BaseURL }}",
-  "image": "{{ .Site.BaseURL }}/images/profile_portrait.jpg",
+  "image": "{{ .Site.Params.defaultImage | absURL }}",
   "jobTitle": "Software Engineer & Technical Lead",
   "description": "{{ .Site.Params.description }}",
   "email": "martin@wiso.cz",
