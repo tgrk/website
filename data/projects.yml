@@ -1,35 +1,35 @@
 ####################### Projects #########################
 - title: "Erlpocket"
   link: "https://hex.pm/packages/erlpocket"
-  avatar: "/media/hex.svg"
+  avatar: "https://www.wiso.cz/media/hex.png"
   description: "Erlang client for the Pocket API to save and manage reading lists."
 
 - title: "Lager Humio Backend"
   link: "https://hex.pm/packages/lager_humio_backend"
-  avatar: "/media/hex.svg"
+  avatar: "https://www.wiso.cz/media/hex.png"
   description: "Lager backend for shipping Erlang logs to Humio efficiently."
 
 - title: "Changelog2JIRA"
   link: "https://github.com/tgrk/changelog2jira"
-  avatar: "/media/github.svg"
+  avatar: "https://www.wiso.cz/media/github.png"
   description: "CLI utility that extracts issue keys from changelogs and updates Jira via webhook."
 
 - title: "YATAEL"
   link: "https://github.com/tgrk/yatael"
-  avatar: "/media/github.svg"
+  avatar: "https://www.wiso.cz/media/github.png"
   description: "Erlang Twitter API client focused on straightforward integration."
 
 - title: "Simple Cache"
   link: "https://hex.pm/packages/simple_cache"
-  avatar: "/media/hex.svg"
+  avatar: "https://www.wiso.cz/media/hex.png"
   description: "Lightweight in-memory cache with TTL support for BEAM services."
 
 - title: "Human IDs"
   link: "https://hex.pm/packages/humanids"
-  avatar: "/media/hex.svg"
+  avatar: "https://www.wiso.cz/media/hex.png"
   description: "Elixir library for generating compact, human-readable identifiers."
 
 - title: "ExOura"
   link: "https://hex.pm/packages/ex_oura"
-  avatar: "/media/hex.svg"
+  avatar: "https://www.wiso.cz/media/hex.png"
   description: "Elixir client for the Oura API with a clean integration layer."

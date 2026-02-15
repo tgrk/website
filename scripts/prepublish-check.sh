@@ -15,7 +15,7 @@ if rg -n "cover:\s*['\"]?/img/cover\.jpg" content/post/*.md >/tmp/missing-covers
 fi
 
 echo "[3/5] Checking missing project media"
-if rg -n "/media/(hex|github)\.png" data/gallery.yml data/projects.yml >/tmp/missing-project-media.out; then
+if rg -n "\"/media/(hex|github)\.png\"" data/gallery.yml data/projects.yml >/tmp/missing-project-media.out; then
   cat /tmp/missing-project-media.out
   echo "ERROR: Found missing project media references"
   exit 1
