@@ -1,0 +1,89 @@
+{{ if and .Site.Params.analytics.enabled .Site.Params.analytics.consent_required }}
+<div id="cookie-consent" class="cookie-consent" hidden>
+  <p>This site uses optional Google Analytics to understand site usage. You can accept or decline.</p>
+  <ul class="actions cookie-consent-actions">
+    <li><a href="#" class="button primary small" data-consent-action="accept">Accept</a></li>
+    <li><a href="#" class="button small" data-consent-action="decline">Decline</a></li>
+  </ul>
+</div>
+
+<script>
+(function () {
+  var consentKey = "site_analytics_consent";
+  var banner = document.getElementById("cookie-consent");
+  var cookieSettingsLink = document.getElementById("cookie-settings-link");
+
+  if (!banner) {
+    return;
+  }
+
+  function getStoredConsent() {
+    try {
+      return window.localStorage.getItem(consentKey);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function setStoredConsent(value) {
+    try {
+      window.localStorage.setItem(consentKey, value);
+    } catch (error) {
+      // Ignore storage failures and continue with runtime behavior.
+    }
+  }
+
+  function showBanner() {
+    banner.hidden = false;
+  }
+
+  function hideBanner() {
+    banner.hidden = true;
+  }
+
+  function grantConsent() {
+    setStoredConsent("accepted");
+    window.dispatchEvent(new Event("analytics:consent-granted"));
+    hideBanner();
+  }
+
+  function declineConsent() {
+    setStoredConsent("declined");
+    hideBanner();
+  }
+
+  if (getStoredConsent() !== "accepted" && getStoredConsent() !== "declined") {
+    showBanner();
+  }
+
+  banner.addEventListener("click", function (event) {
+    var target = event.target && event.target.closest("[data-consent-action]");
+    var action = target && target.getAttribute("data-consent-action");
+
+    if (action) {
+      event.preventDefault();
+    }
+
+    if (action === "accept") {
+      grantConsent();
+      return;
+    }
+
+    if (action === "decline") {
+      declineConsent();
+    }
+  });
+
+  window.openCookieSettings = function () {
+    showBanner();
+  };
+
+  if (cookieSettingsLink) {
+    cookieSettingsLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.openCookieSettings();
+    });
+  }
+})();
+</script>
+{{ end }}

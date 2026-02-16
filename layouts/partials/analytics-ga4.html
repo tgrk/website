@@ -1,0 +1,45 @@
+{{ if and .Site.Params.analytics.enabled (eq .Site.Params.analytics.provider "ga4") .Site.Params.analytics.measurement_id }}
+<script>
+(function () {
+  var consentKey = "site_analytics_consent";
+  var measurementId = {{ .Site.Params.analytics.measurement_id | jsonify }};
+  var consentRequired = {{ .Site.Params.analytics.consent_required | jsonify }};
+  var loaded = false;
+
+  function getStoredConsent() {
+    try {
+      return window.localStorage.getItem(consentKey);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function loadAnalytics() {
+    if (loaded || !measurementId) {
+      return;
+    }
+
+    loaded = true;
+
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(measurementId);
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
+
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId);
+  }
+
+  if (!consentRequired || getStoredConsent() === "accepted") {
+    loadAnalytics();
+  }
+
+  window.addEventListener("analytics:consent-granted", loadAnalytics);
+})();
+</script>
+{{ end }}

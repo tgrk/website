@@ -27,6 +27,12 @@ canonifyURLs = false
   tagline = "Experienced Software Engineer & Technical Lead"
   defaultImage = "/img/headers/profile_portrait.jpg"
 
+[Params.analytics]
+  enabled = true
+  provider = "ga4"
+  measurement_id = "G-9G56ZYB7VV"
+  consent_required = true
+
 [Params.style]
   custom = ["sass/custom.scss"]
 

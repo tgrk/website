@@ -10,9 +10,11 @@
             {{ with .Site.Params.social.email }}<li><a target="_blank" rel="noopener noreferrer" href="mailto:{{.}}" class="fav icon style2 fa-envelope"><span class="label">Email</span></a></li>{{end}}
         </ul>
         <p>&copy; {{ now.Format "2006" }} {{ or .Site.Params.author .Site.Title }}<span class="footerspacer icon solid fa-diamond"></span>
-            Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/hugo-story">Hugo Story</a> by <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/">CaressOfSteel</a></p>
+            Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/hugo-story">Hugo Story</a> by <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/">CaressOfSteel</a><span class="footerspacer icon solid fa-diamond"></span><a href="#" id="cookie-settings-link">Cookie settings</a></p>
     </div>
 </footer>
+
+{{ partial "analytics-consent" . }}
 
 <!-- FontAwesome JS -->
 {{ range .Site.Params.asset.fontawesome_js -}}
