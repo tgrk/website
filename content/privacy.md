@@ -7,7 +7,7 @@ menu: "footer"
 
 ## Privacy Policy
 
-Last updated: January 15, 2026
+Last updated: February 16, 2026
 
 ### Introduction
 
@@ -25,7 +25,7 @@ When you visit our website, certain information is automatically collected, incl
 - Date and time of visit
 
 #### Analytics
-We may use privacy-first analytics services to understand how visitors use our website. This data is anonymized and aggregated, and does not identify individual users.
+We use Google Analytics 4 (GA4) only when you explicitly accept analytics consent via our cookie banner. If you decline, analytics is not loaded and no GA4 tracking requests are sent from your browser.
 
 ### How We Use Your Information
 
@@ -37,15 +37,17 @@ We use the collected information to:
 
 ### Cookies
 
-Our website may use essential cookies to ensure proper functionality. We do not use tracking cookies or third-party advertising cookies.
+Our website uses essential browser storage for functionality and to remember your analytics consent choice. Analytics cookies/scripts are optional and are enabled only after explicit consent.
 
 ### Third-Party Services
 
 We may use the following third-party services:
 - **Font Delivery**: For web fonts (served from CDN)
-- **Analytics**: Privacy-first analytics (if enabled)
+- **Google Analytics 4 (optional)**: Enabled only after you opt in via consent banner
 
 These services may collect limited data as described in their respective privacy policies.
+
+If you decline analytics consent, the website remains fully functional.
 
 ### Your Rights (GDPR)
 
