@@ -1,8 +1,9 @@
-{{ if and .Site.Params.analytics.enabled (eq .Site.Params.analytics.provider "ga4") .Site.Params.analytics.measurement_id }}
+{{ $measurementID := or .Site.Params.analytics.measurement_id .Site.Config.Services.GoogleAnalytics.ID }}
+{{ if and .Site.Params.analytics.enabled (eq .Site.Params.analytics.provider "ga4") $measurementID }}
 <script>
 (function () {
   var consentKey = "site_analytics_consent";
-  var measurementId = {{ .Site.Params.analytics.measurement_id | jsonify }};
+  var measurementId = {{ $measurementID | jsonify }};
   var consentRequired = {{ .Site.Params.analytics.consent_required | jsonify }};
   var loaded = false;
 

@@ -14,7 +14,10 @@ canonifyURLs = false
 ## -----------------------------------------------
 
 # Keep taxonomy indexes enabled so /tags/ resolves with an index page.
-# googleAnalytics = "G-9G56ZYB7VV"  # Disabled - consider privacy-first alternative
+
+[services]
+  [services.googleAnalytics]
+    ID = "G-9G56ZYB7VV"
 
 ## -----------------------------------------------
 ## Site Parameters
