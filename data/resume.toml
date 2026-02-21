@@ -68,7 +68,8 @@ interests = [
     title = "Senior Software Engineer"
     year = "06/2024 - Present"
     projects = [
-      "Building and maintaining the Stage+ video and audio streaming platform for classical music."
+      "Building and maintaining the Stage+ video and audio streaming platform for classical music.",
+      "Working on multiple projects from metadata ingest from internal services, content personalization, search and overall performance, resilience and also DX."
     ]
 
   [[experience.list]]
