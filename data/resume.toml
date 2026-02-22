@@ -71,6 +71,7 @@ interests = [
       "Building and maintaining the Stage+ video and audio streaming platform for classical music.",
       "Working on multiple projects from metadata ingest from internal services, content personalization, search and overall performance, resilience and also DX."
     ]
+    technologies = ["Elixir", "GraphQL", "Redis", "PostgreSQL", "AWS", "Algolia", "LiveView"]
 
   [[experience.list]]
     name = "Taxfix"
@@ -85,6 +86,7 @@ interests = [
       "Scaled architecture and engineering practices while remaining hands-on.",
       "Built and grew an internal team, including hiring and mentoring."
     ]
+    technologies = ["Elixir", "Go", "DSL", "GCP", "PostgreSQL", "MongoDB", "Kubernetes", "Expert Systems", "Knowledge Graphs", "Automated Reasoning"]
 
   [[experience.list]]
     name = "Taxfix"
@@ -98,6 +100,7 @@ interests = [
       "Led backend and platform initiatives for core tax product workflows.",
       "Improved service reliability and long-term maintainability."
     ]
+    technologies = ["Elixir", "PostgreSQL", "GCP", "Kubernetes", "Expert Systems", "Knowledge Graphs", "Automated Reasoning"]
 
   [[experience.list]]
     name = "Taxfix"
@@ -110,6 +113,7 @@ interests = [
     projects = [
       "Contributed to backend systems supporting tax filing workflows and product scale."
     ]
+    technologies = ["Elixir", "PostgreSQL", "GCP", "Kubernetes", "Expert Systems", "Knowledge Graphs", "Automated Reasoning"]
 
   [[experience.list]]
     name = "IDAGIO"
@@ -124,6 +128,7 @@ interests = [
       "Rewrote legacy Node.js services into Go backend components.",
       "Introduced unified Swagger/Swagger UI for API exploration and collaboration."
     ]
+    technologies = ["Go", "Node.js", "Ruby", "Heroku", "Swagger", "Microservices", "PostgreSQL"]
 
   [[experience.list]]
     name = "solarisBank AG"
@@ -137,6 +142,7 @@ interests = [
       "Built and maintained lending API products in the Consumer and SME Loan domain.",
       "Worked across Elixir/Erlang, RDBMS, Redis, Docker, and Concourse."
     ]
+    technologies = ["Elixir", "Docker Swarm", "Concourse", "PostgreSQL"]
 
   [[experience.list]]
     name = "QT Mobilitätsservice (Qixxit)"
@@ -150,6 +156,7 @@ interests = [
       "Integrated third-party APIs and improved route-planning backend scalability.",
       "Stabilized and extended an Erlang/OTP prototype into a production replacement service."
     ]
+    technologies = ["Erlang/OTP", "REST APIs", "Microservices", "Neo4j", "PostgreSQL"]
 
   [[experience.list]]
     name = "Talon.One"
@@ -163,6 +170,7 @@ interests = [
       "Built backend capabilities for a SaaS rule engine platform on AWS.",
       "Contributed to performance work reaching 100k RPS on basic workflows."
     ]
+    technologies = ["Go", "AWS", "PostgreSQL", "SaaS"]
 
   [[experience.list]]
     name = "SumUp"
@@ -176,6 +184,7 @@ interests = [
       "Implemented contactless NFC reader support in backend card payment systems.",
       "Supported MasterCard and VISA certification preparation and backend quality improvements."
     ]
+    technologies = ["Erlang/OTP", "Payments", "NFC", "ISO8583", "PostgreSQL"]
 
   [[experience.list]]
     name = "Game Analytics"
@@ -189,6 +198,7 @@ interests = [
       "Scaled a big-data streaming system from ~5k to ~60k RPS and operated traffic around 5B events/day.",
       "Contributed to Erlang-based realtime analytics and Hadoop/Spark batch processing components."
     ]
+    technologies = ["Erlang/OTP", "Hadoop", "Spark", "Big Data", "Event Streaming", "AWS"]
 
   [[experience.list]]
     name = "SumUp"
@@ -202,6 +212,7 @@ interests = [
       "Developed EMV backend systems for card payments with fault-tolerant Erlang architecture.",
       "Implemented ISO8583/GICC integrations and contributed to certification efforts."
     ]
+    technologies = ["Erlang/OTP", "Postgres", "EMV", "ISO8583", "Payments", "Fault Tolerance"]
 
   [[experience.list]]
     name = "OpenLab Ltd."
@@ -215,6 +226,7 @@ interests = [
       "Co-designed and built a digital signage platform with Erlang/OTP, messaging, and cloud operations.",
       "Led architecture and implementation across backend and platform components."
     ]
+    technologies = ["Erlang/OTP", "Cloud", "Messaging", "Distributed Systems", "Flex"]
 
   [[experience.list]]
     name = "Earlier Roles Summary"
@@ -227,6 +239,7 @@ interests = [
       "Worked across IT support, web and backend development, SharePoint/.NET ecosystems, Java enterprise projects, and early team leadership responsibilities.",
       "Built broad foundations in full software lifecycle delivery, client-facing consulting, and cross-functional collaboration in banking and enterprise domains."
     ]
+    technologies = ["Java", ".NET", "SharePoint", "Web Development", "Enterprise Systems"]
 
 [certification]
 

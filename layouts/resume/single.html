@@ -91,6 +91,9 @@
                     {{ end }}
                 </ul>
                 {{ end }}
+                {{ with $job.technologies }}
+                <p class="resume-technologies"><strong>Technologies:</strong> {{ delimit . ", " }}</p>
+                {{ end }}
             </article>
             {{ end }}
             {{ end }}
