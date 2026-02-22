@@ -1,4 +1,4 @@
-{{ $measurementID := or .Site.Params.analytics.measurement_id .Site.Config.Services.GoogleAnalytics.ID }}
+{{ $measurementID := .Site.Config.Services.GoogleAnalytics.ID }}
 {{ if and .Site.Params.analytics.enabled (eq .Site.Params.analytics.provider "ga4") $measurementID }}
 <script>
 (function () {

@@ -33,7 +33,6 @@ canonifyURLs = false
 [Params.analytics]
   enabled = true
   provider = "ga4"
-  measurement_id = "G-9G56ZYB7VV"
   consent_required = true
 
 [Params.style]
