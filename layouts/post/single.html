@@ -1,5 +1,17 @@
 {{ define "main" }}
 
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+<script>
+(function() {
+  var bar = document.getElementById('reading-progress');
+  window.addEventListener('scroll', function() {
+    var scrolled = window.scrollY;
+    var total = document.body.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? Math.min(scrolled / total * 100, 100) : 0) + '%';
+  }, { passive: true });
+})();
+</script>
+
 {{ partial "site-nav" . }}
 
 <section class="wrapper style1 align-left">
