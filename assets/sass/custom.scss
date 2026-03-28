@@ -1,6 +1,7 @@
 $primary: #1f3344;
 $accent: #0f7b9f;
 $accent-hover: #0b5f7b;
+$accent-warm: #b83c1e;
 $text-primary: #1f3344;
 $text-secondary: #5f7382;
 $text-light: #7f8f9a;
@@ -15,6 +16,7 @@ $border-light: #dce4ea;
 }
 
 body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
   color: $text-primary;
   background-color: $bg-light;
   font-size: 17px;
@@ -35,7 +37,15 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: 'Lora', Georgia, serif;
   color: $primary;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .site-nav {
@@ -72,10 +82,13 @@ h6 {
 }
 
 .site-nav-logo {
-  font-weight: 700;
-  font-size: 1.05rem;
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.1rem;
   color: $primary;
   text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
 .site-nav-toggle {
@@ -93,13 +106,30 @@ h6 {
   gap: 1rem;
 
   a {
+    position: relative;
     color: $text-secondary;
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
 
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $accent;
+      border-radius: 1px;
+      transition: width 0.25s ease;
+    }
+
     &:hover {
       color: $accent;
+
+      &::after {
+        width: 100%;
+      }
     }
 
     &:focus-visible {
@@ -128,9 +158,9 @@ h6 {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    transform: translateY(-1px);
+    transform: translateY(-3px);
     border-color: $accent;
-    box-shadow: 0 8px 24px rgba(20, 34, 45, 0.1);
+    box-shadow: 0 12px 32px rgba(15, 123, 159, 0.14), 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -221,9 +251,20 @@ h6 {
 }
 
 .blog-tags {
-  font-size: 0.85rem;
-  color: $text-light;
+  font-size: 0.8rem;
+  color: $text-secondary;
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+
+  span {
+    display: inline-block;
+    background: $bg-dark;
+    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+    color: $text-secondary;
+  }
 }
 
 .project-link,
@@ -234,6 +275,34 @@ h6 {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+}
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: $accent;
+  z-index: 9999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+.content blockquote {
+  border-left: 4px solid $accent;
+  background: $bg-dark;
+  padding: 0.9rem 1.4rem;
+  margin: 2rem 0;
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  border-radius: 0 0.3rem 0.3rem 0;
+  color: $text-primary;
+
+  p {
+    margin: 0;
+  }
 }
 
 .post-meta {
@@ -262,13 +331,18 @@ h6 {
 }
 
 .resume-content .resume-entry {
-  margin: 0 0 1.6rem 0;
-  padding: 0 0 1rem 0;
-  border-bottom: 1px solid $border-light;
+  margin: 0 0 1.8rem 0;
+  padding: 0 0 0 1.2rem;
+  border-bottom: none;
+  border-left: 3px solid $border-light;
+  transition: border-left-color 0.2s ease;
+
+  &:hover {
+    border-left-color: $accent;
+  }
 }
 
 .resume-content .resume-entry:last-of-type {
-  border-bottom: 0;
   padding-bottom: 0;
 }
 
@@ -316,6 +390,44 @@ h6 {
 
 .resume-projects li {
   margin: 0.2rem 0;
+}
+
+.resume-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.8rem 1.5rem;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.resume-skill-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.resume-skill-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: $text-secondary;
+
+  strong {
+    font-weight: 500;
+    color: $text-primary;
+  }
+}
+
+.resume-skill-bar {
+  height: 5px;
+  background: $bg-dark;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.resume-skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, $accent 0%, lighten($accent, 18%) 100%);
+  border-radius: 3px;
 }
 
 @media (max-width: 900px) {
@@ -429,5 +541,21 @@ h6 {
 
   .cookie-consent-actions {
     justify-content: flex-start;
+  }
+}
+
+// Override theme's pure-black primary button with brand navy + warm hover
+.button.primary {
+  background-color: $primary !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+
+  &:hover {
+    background-color: $accent-warm !important;
+    color: #ffffff !important;
+  }
+
+  &:active {
+    background-color: darken($accent-warm, 10%) !important;
   }
 }
