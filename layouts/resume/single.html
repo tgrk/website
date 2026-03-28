@@ -15,11 +15,19 @@
 
             {{ with $resume.skill.list }}
             <h2>Core Skills</h2>
-            <ul>
+            <div class="resume-skill-grid">
                 {{ range . }}
-                <li><strong>{{ .name }}</strong> ({{ .level }}%)</li>
+                <div class="resume-skill-bar-wrap">
+                    <div class="resume-skill-bar-label">
+                        <strong>{{ .name }}</strong>
+                        <span>{{ .level }}%</span>
+                    </div>
+                    <div class="resume-skill-bar">
+                        <div class="resume-skill-fill" style="width: {{ .level }}%"></div>
+                    </div>
+                </div>
                 {{ end }}
-            </ul>
+            </div>
             {{ end }}
 
             {{ with $resume.certification.list }}
