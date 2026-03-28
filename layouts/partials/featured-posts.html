@@ -22,7 +22,7 @@
                                 <span class="blog-reading-time">{{ .ReadingTime }} min read</span>
                             </p>
                             {{ if .Params.tags }}
-                            <p class="blog-tags">{{ delimit .Params.tags " • " }}</p>
+                            <p class="blog-tags">{{ range .Params.tags }}<span>{{ . }}</span>{{ end }}</p>
                             {{ end }}
                         </div>
                     </div>
