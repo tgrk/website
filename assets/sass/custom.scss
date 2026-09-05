@@ -397,6 +397,8 @@ samp {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 0.8rem 1.5rem;
   margin: 0.5rem 0 1.5rem 0;
+  padding: 0;
+  list-style: none;
 }
 
 .resume-skill-bar-wrap {

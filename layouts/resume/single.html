@@ -2,7 +2,7 @@
 
 {{ partial "site-nav" . }}
 
-{{ $resume := site.Data.resume }}
+{{ $resume := hugo.Data.resume }}
 
 <section class="wrapper style1 align-left">
     <div class="inner">
@@ -15,9 +15,9 @@
 
             {{ with $resume.skill.list }}
             <h2>Core Skills</h2>
-            <div class="resume-skill-grid">
+            <ul class="resume-skill-grid">
                 {{ range . }}
-                <div class="resume-skill-bar-wrap">
+                <li class="resume-skill-bar-wrap">
                     <div class="resume-skill-bar-label">
                         <strong>{{ .name }}</strong>
                         <span>{{ .level }}%</span>
@@ -25,9 +25,9 @@
                     <div class="resume-skill-bar">
                         <div class="resume-skill-fill" style="width: {{ .level }}%"></div>
                     </div>
-                </div>
+                </li>
                 {{ end }}
-            </div>
+            </ul>
             {{ end }}
 
             {{ with $resume.certification.list }}

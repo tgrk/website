@@ -4,7 +4,7 @@
 
 theme = "hugo-story"
 baseURL = "https://www.wiso.cz"
-languageCode = "en-US"
+locale = "en-US"
 title = "Martin Wišo"
 enableRobotsTXT = true
 canonifyURLs = false
