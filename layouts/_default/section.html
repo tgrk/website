@@ -6,6 +6,17 @@
     <div class="inner">
         <h1>{{ .Title }}</h1>
         {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        {{ if eq .Section "post" }}
+        <nav aria-label="Post topics">
+            <h2>Browse by topic</h2>
+            <p>
+                {{ range $index, $term := site.Taxonomies.tags.Alphabetical }}
+                {{ if $index }} · {{ end }}
+                <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+                {{ end }}
+            </p>
+        </nav>
+        {{ end }}
         <div class="content align-left">
             {{ .Content }}
             {{ if .Pages }}
