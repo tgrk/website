@@ -8,9 +8,9 @@
         <div class="content align-left">
             {{ .Content }}
             
-            {{ if site.Data.projects }}
+            {{ if hugo.Data.projects }}
             <div class="projects-list">
-                {{ range $value := site.Data.projects }}
+                {{ range $value := hugo.Data.projects }}
                 <article class="project-item">
                     <a href="{{ $value.link }}" target="_blank" rel="noopener" class="project-item-link">
                         <div class="project-content{{ if not $value.avatar }} no-thumb{{ end }}">

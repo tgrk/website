@@ -1,11 +1,11 @@
 {{ define "main" }}
 
 	{{ partial "site-nav" . }}
-	{{ partial "banner" site.Data.banner }}
-	{{ partial "spotlight" site.Data.spotlight1 }}
-	{{ partial "spotlight" site.Data.spotlight2 }}
-	{{ partial "featured-posts" site.Data.items }}
-	{{ partial "gallery" site.Data.gallery }}
+	{{ partial "banner" hugo.Data.banner }}
+	{{ partial "spotlight" hugo.Data.spotlight1 }}
+	{{ partial "spotlight" hugo.Data.spotlight2 }}
+	{{ partial "featured-posts" hugo.Data.items }}
+	{{ partial "gallery" hugo.Data.gallery }}
 	{{ partial "footer" . }}
 
 {{ end }}
