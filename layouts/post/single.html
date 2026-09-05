@@ -14,29 +14,39 @@
 
 {{ partial "site-nav" . }}
 
-<section class="wrapper style1 align-left">
-    <div class="inner">
-        <header>
-            <h1>{{ .Title }}</h1>
+<main class="post-page" id="main">
+    <article class="post-article" aria-labelledby="post-title">
+        <header class="post-header">
+            <a class="post-back" href="{{ "post/" | relURL }}"><span aria-hidden="true">← </span>All writing</a>
+            <h1 id="post-title">{{ .Title }}</h1>
+            {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
             <p class="post-meta">
-                {{ if .Date }}<span>{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
+                <span class="post-author">{{ .Params.author | default .Site.Params.author }}</span>
+                {{ if .Date }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>{{ end }}
                 <span>{{ .ReadingTime }} min read</span>
             </p>
-            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+            {{ with .GetTerms "tags" }}
+            <nav class="post-tags" aria-label="Post topics">
+                {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+            </nav>
+            {{ end }}
         </header>
 
-        {{ $cover := .Params.cover | default .Site.Params.defaultImage }}
-        {{ if $cover }}
-        <div class="post-cover">
-            <img src="{{ $cover }}" alt="{{ .Title }}" loading="eager" decoding="async" />
-        </div>
+        {{ with .Params.cover }}
+        <figure class="post-cover">
+            <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="eager" decoding="async" />
+        </figure>
         {{ end }}
 
-        <div class="content align-left">
+        <div class="content post-body">
             {{ .Content }}
         </div>
-    </div>
-</section>
+        <footer class="post-footer">
+            <p>Thanks for reading.</p>
+            <a href="{{ "post/" | relURL }}">Explore all writing <span aria-hidden="true">→</span></a>
+        </footer>
+    </article>
+</main>
 
 {{ partial "footer" . }}
 
