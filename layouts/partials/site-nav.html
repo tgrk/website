@@ -3,10 +3,10 @@
         <a href="/" class="site-nav-logo">{{ .Site.Title }}</a>
         <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
         <nav class="site-nav-links" id="site-nav-links">
-            <a href="/#about">About</a>
-            <a href="/post/">Blog</a>
-            <a href="/#projects">Projects</a>
-            <a href="/resume/">Resume</a>
+            <a href="/#about"{{ if .IsHome }} aria-current="location"{{ else if eq .RelPermalink ("/about/" | relURL) }} aria-current="true"{{ end }}>About</a>
+            <a href="/post/"{{ if or (eq .Section "post") (eq .Section "tags") }} aria-current="true"{{ end }}>Blog</a>
+            <a href="/#projects"{{ if eq .RelPermalink ("/projects/" | relURL) }} aria-current="true"{{ end }}>Projects</a>
+            <a href="/resume/"{{ if eq .RelPermalink ("/resume/" | relURL) }} aria-current="page"{{ end }}>Resume</a>
             {{ with .Site.Params.social.email }}<a href="mailto:{{ . }}">Contact</a>{{ end }}
         </nav>
     </div>
@@ -16,6 +16,26 @@ document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".site-nav-toggle");
   var links = document.getElementById("site-nav-links");
   if (!toggle || !links) return;
+  {{ if .IsHome }}
+  var sections = [
+    { element: document.getElementById("about"), link: links.querySelector('[href="/#about"]') },
+    { element: document.getElementById("blog"), link: links.querySelector('[href="/post/"]') },
+    { element: document.getElementById("projects"), link: links.querySelector('[href="/#projects"]') }
+  ];
+  function updateCurrentSection() {
+    var current = sections[0];
+    sections.forEach(function (section) {
+      if (section.element && section.element.getBoundingClientRect().top <= window.innerHeight / 3) current = section;
+    });
+    sections.forEach(function (section) {
+      if (section === current) section.link.setAttribute("aria-current", "location");
+      else section.link.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("scroll", updateCurrentSection, { passive: true });
+  window.addEventListener("resize", updateCurrentSection);
+  updateCurrentSection();
+  {{ end }}
   toggle.addEventListener("click", function () {
     var isOpen = links.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");

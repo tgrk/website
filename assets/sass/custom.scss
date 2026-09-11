@@ -124,6 +124,7 @@ samp {
       transition: width 0.25s ease;
     }
 
+    &[aria-current],
     &:hover {
       color: $accent;
 
