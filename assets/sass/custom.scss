@@ -48,6 +48,17 @@ samp {
   font-family: 'IBM Plex Mono', monospace;
 }
 
+// Clip horizontal overflow without creating a scroll container for the sticky menu.
+#wrapper {
+  overflow-x: clip;
+}
+
+#about,
+#blog,
+#projects {
+  scroll-margin-top: 5rem;
+}
+
 .site-nav {
   position: sticky;
   top: 0;
@@ -251,20 +262,63 @@ samp {
   margin: 0 0 0.25rem 0;
 }
 
-.blog-tags {
-  font-size: 0.8rem;
-  color: $text-secondary;
-  margin: 0;
+.blog-tags,
+.post-tags,
+.topic-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  align-items: center;
+  gap: 0.35rem;
 
-  span {
-    display: inline-block;
-    background: $bg-dark;
-    border-radius: 3px;
-    padding: 0.1rem 0.45rem;
+  > a,
+  > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.55rem;
+    border: 1px solid #e2e8ec;
+    border-radius: 999px;
+    background: #f5f7f8;
     color: $text-secondary;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  > a {
+    min-height: 1.5rem;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      background: #edf2f4;
+      border-color: #bdcdd5;
+      color: $accent-hover;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $accent;
+      outline-offset: 3px;
+    }
+  }
+}
+
+.blog-tags {
+  margin: 0;
+  gap: 0.35rem;
+
+  > span { padding: 0.1rem 0.45rem; }
+}
+
+.topic-tags {
+  margin: 0 0 2rem;
+
+  .topic-count {
+    padding-left: 0.35rem;
+    border-left: 1px solid #e2e8ec;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -368,24 +422,7 @@ samp {
 }
 
 .post-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
   margin-top: 1.25rem;
-
-  a {
-    border: 1px solid $border-light;
-    border-radius: 0.25rem;
-    padding: 0.2rem 0.65rem;
-    font-size: 0.8rem;
-    text-decoration: none;
-    color: $text-secondary;
-
-    &:hover {
-      border-color: $accent;
-      color: $accent;
-    }
-  }
 }
 
 .post-cover {
