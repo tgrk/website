@@ -38,6 +38,13 @@ canonifyURLs = false
 [Params.style]
   custom = ["sass/custom.scss"]
 
+# Giscus configuration from https://giscus.app.
+[Params.giscus]
+  repo = "tgrk/website"
+  repoId = "MDEwOlJlcG9zaXRvcnk5NTM2MjAzMg=="
+  category = "General"
+  categoryId = "DIC_kwDOBa8b8M4DGEfO"
+
 [Params.social]
   email = "martin@wiso.cz"
   github = "https://github.com/tgrk"

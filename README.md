@@ -60,6 +60,16 @@ Posts:
 Canonical projects source:
 - Keep projects in `data/projects.yml` for the full projects page.
 
+## Blog Comments (Giscus)
+
+Comments appear below individual posts once `[Params.giscus]` in `config.toml` is complete.
+
+1. Enable Discussions on the public `tgrk/website` repository and install the [Giscus app](https://github.com/apps/giscus) for that repository.
+2. Use [giscus.app](https://giscus.app) to select the repository and discussion category (currently `General`), then copy its `data-repo`, `data-repo-id`, `data-category`, and `data-category-id` values into `repo`, `repoId`, `category`, and `categoryId`.
+3. Run `./scripts/check-post-layout.sh` and preview a post with `hugo server`.
+
+The embed uses pathname matching, reactions, lazy loading, and a light theme matching the site. Keep post URLs stable to preserve discussion associations. Set `comments: false` in a post's front matter to hide comments; clearing `categoryId` hides them site-wide. Comments require GitHub sign-in to participate and are stored in GitHub Discussions.
+
 ## Theme and Approach Notes
 
 - Theme base: `hugo-story`.

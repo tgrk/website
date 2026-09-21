@@ -7,7 +7,7 @@ menu: "footer"
 
 ## Privacy Policy
 
-Last updated: February 16, 2026
+Last updated: September 21, 2026
 
 ### Introduction
 
@@ -44,6 +44,7 @@ Our website uses essential browser storage for functionality and to remember you
 We may use the following third-party services:
 - **Font Delivery**: For web fonts (served from CDN)
 - **Google Analytics 4 (optional)**: Enabled only after you opt in via consent banner
+- **Giscus / GitHub Discussions (blog comments, when enabled)**: Post pages load the comment widget from giscus.app. Commenting requires signing in with GitHub; comments and reactions are stored publicly in GitHub Discussions. See [Giscus](https://giscus.app) and [GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
 
 These services may collect limited data as described in their respective privacy policies.
 
