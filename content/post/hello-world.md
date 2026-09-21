@@ -5,7 +5,7 @@ tags: []
 date: 2017-09-24T15:42:15+02:00
 draft: false
 description: "A short reboot post about restarting the blog and sharing engineering learnings."
-featured: true
+featured: false
 ---
 
 Well it is time to start a bit of blogging again!
