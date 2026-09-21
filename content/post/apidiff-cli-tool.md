@@ -7,7 +7,7 @@ slug: "api-diff-cli-tool"
 aliases: ["/post/apidiff-cli-tool/"]
 draft: false
 description: "A CLI tool for comparing HTTP JSON APIs to ensure compatibility during migrations and refactoring"
-featured: true
+featured: false
 ---
 
 While rewriting some of [IDAGIO](https://asciinema.org) micro-services back to monolith I came across a need to be able to compare HTTP JSON based APIs for both payload and HTTP header changes. Sadly all tools I came across were either too simple, lacking flexibility or lacking CLI interface. Well, then I decided it should be easy to write new one CLI tool...
