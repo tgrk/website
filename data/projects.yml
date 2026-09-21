@@ -1,4 +1,9 @@
 ####################### Projects #########################
+- title: "Elixir AI Starter"
+  link: "https://github.com/tgrk/elixir-ai-starter"
+  avatar: "https://www.wiso.cz/media/github.png"
+  description: "Elixir/OTP project template with quality checks, CI, and tools for AI-assisted development."
+
 - title: "Erlpocket"
   link: "https://hex.pm/packages/erlpocket"
   avatar: "https://www.wiso.cz/media/hex.png"

@@ -5,6 +5,13 @@ content: |
 style: "style1 medium onscroll-fade-in"
 id: "projects"
 pictures:
+  - title: "Elixir AI Starter"
+    content: "Elixir/OTP project template with quality checks, CI, and tools for AI-assisted development."
+    button: "View on GitHub"
+    url: "https://github.com/tgrk/elixir-ai-starter"
+    image: "https://www.wiso.cz/media/github.png"
+    thumb: "https://www.wiso.cz/media/github.png"
+
   - title: "Human IDs"
     content: "Elixir library for generating compact, human-readable identifiers."
     button: "View on Hex.pm"
