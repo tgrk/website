@@ -427,16 +427,16 @@ samp {
 
 .post-cover {
   margin: 2.5rem auto 0;
-  border: 1px solid $border-light;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background: $bg-white;
 
   img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     max-height: 520px;
-    object-fit: contain;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid $border-light;
+    border-radius: 0.5rem;
   }
 }
 
