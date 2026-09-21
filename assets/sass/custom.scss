@@ -377,7 +377,8 @@ samp {
 
 .post-header,
 .post-body,
-.post-footer {
+.post-footer,
+.post-comments {
   max-width: 42rem;
   margin: 0 auto;
 }
@@ -475,6 +476,24 @@ samp {
   font-size: 0.95rem;
 
   p { margin: 0; color: $text-secondary; }
+  a { color: $accent; text-underline-offset: 0.2em; }
+}
+
+.post-comments {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-light;
+  overflow-wrap: anywhere;
+  color: $text-secondary;
+
+  h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+    scroll-margin-top: 6rem;
+  }
+
   a { color: $accent; text-underline-offset: 0.2em; }
 }
 

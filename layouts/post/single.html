@@ -46,7 +46,7 @@
             <a href="{{ "post/" | relURL }}">Explore all writing <span aria-hidden="true">→</span></a>
         </footer>
         {{ if ne .Params.comments false }}
-        <section aria-labelledby="comments-title">
+        <section class="post-comments" aria-labelledby="comments-title">
             <h2 id="comments-title">Comments</h2>
             {{ template "_internal/disqus.html" . }}
         </section>
