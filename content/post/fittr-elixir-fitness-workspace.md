@@ -1,7 +1,7 @@
 ---
 title: "Fittr: a personal fitness workspace built with Elixir and Codex"
 cover: "/img/fittr/dashboard.png"
-tags: ["Elixir", "BEAM", "software"]
+tags: ["Elixir", "BEAM", "software", "fitness", "tracking"]
 date: 2026-09-05T15:00:00+02:00
 draft: true
 featured: true
