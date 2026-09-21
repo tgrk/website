@@ -10,51 +10,35 @@ description: "Does trusting compilers, garbage collectors, and hardware mean we 
 
 In discussions about AI-assisted development, I keep coming back to a comparison with earlier advances in software engineering. We trusted compilers to replace handwritten assembly, garbage collectors to manage memory, and increasingly complex hardware to execute our programs. Why should delegating work to an LLM be fundamentally different?
 
-For managers looking for the next productivity gain, this is an appealing argument. Software development has advanced by moving responsibilities into tools. Developers who insist on retaining every detail of manual control can miss the value of a better abstraction.
-
-But the comparison bundles together several different questions: whether to use a tool, whether to check its output, and how much authority to give it. A useful technology can deserve widespread adoption while still requiring a different kind of verification from the tools that came before it.
-
-I think the analogy is worth taking seriously. To understand how far it goes, we need to look at what each tool takes responsibility for, what its contract promises, and where uncertainty remains.
+The appeal is clear: software development advances by moving responsibilities into tools. But adopting a tool, checking its output, and granting it authority are different decisions. To understand how far the analogy goes, we need to examine what each tool takes responsibility for, what its contract promises, and where uncertainty remains.
 
 <!--more-->
 
-## Why the comparison is appealing
+We already trust systems whose work we do not inspect in full. If my standard for trusting software is that I personally wrote every line, that standard deserves questioning. Personal authorship does not establish correctness.
 
-The strongest version of the argument is straightforward: we already trust systems whose work we do not inspect in full. We write source code without reviewing every generated instruction. We use garbage collectors without deciding when each allocation should be released. We rely on processors without understanding every detail of their implementation.
-
-If my standard for trusting software is that I personally wrote every line, that standard deserves questioning. Personal authorship does not establish correctness. Familiar code can contain familiar mistakes.
-
-An LLM can look like the next step in this progression: describe the desired result at a higher level and let the tool handle more of the implementation. The potential benefit is real enough to investigate. Requiring developers to inspect everything forever would rule out much of what makes abstraction useful.
-
-The difficulty is that moving to a higher level does not automatically give us a dependable abstraction. We also need to know which details we can safely stop thinking about and under what conditions.
-
-There may be a difference in what managers and developers are observing. A demonstration makes the speed of producing an implementation visible. Understanding it, correcting it, and maintaining it take longer to observe. Conversely, a developer focused on individual mistakes may overlook a workflow that produces better results overall. Neither perspective alone settles the question.
+An LLM lets us describe a desired result at a higher level and delegate more of the implementation. The question is which details we can safely stop thinking about, and under what conditions.
 
 ## What exactly are we delegating?
 
 A compiler translates a program expressed in a formal language. Its correctness contract concerns preserving the behavior allowed by that language. It does not establish whether the program implements the right business requirement.
 
-The [CompCert documentation](https://compcert.org/man/manual001.html) makes that contract explicit through semantic preservation. Its verified compilation passes preserve allowed source behavior within the proof's scope and assumptions. Most compilers do not come with equivalent proofs, and compiler bugs exist. The useful point is that there is a precise relationship to check between input and output.
+The [CompCert documentation](https://compcert.org/man/manual001.html) makes that contract explicit through semantic preservation. Its verified compilation passes preserve allowed source behavior within the proof's scope and assumptions. Most compilers do not come with equivalent proofs, and compiler bugs exist. There is nevertheless a precise relationship to check between input and output.
 
-A garbage collector has another bounded responsibility: reclaim memory while preserving objects the program can still access. It also introduces costs. The [Go GC guide](https://go.dev/doc/gc-guide) explains trade-offs involving CPU, memory, and latency. Choosing whether those costs fit an application is an engineering decision. Concerns about them do not become irrelevant because automatic memory management is useful.
+A garbage collector has another bounded responsibility: reclaim memory while preserving objects the program can still access. The [Go GC guide](https://go.dev/doc/gc-guide) explains the associated CPU, memory, and latency trade-offs. Choosing whether those costs fit an application remains an engineering decision.
 
-Hardware adds another layer. When we rely on a processor, we expect it to execute instructions according to its architecture and memory model. We do not need to follow every internal operation to write a program, but we do need to respect the exposed rules, particularly around concurrency. The processor does not decide what our application's permissions or business rules ought to be.
+A processor executes instructions according to its architecture and memory model. We can ignore much of its internal machinery, but must respect its exposed rules, particularly around concurrency. It does not decide our application's permissions or business rules.
 
-An LLM coding assistant can take on a much broader responsibility. Given an incomplete request, it may infer requirements, choose an architecture, invent missing details, and implement the result. Some of that work resembles what we ask another developer to do.
+An LLM coding assistant can take on a broader responsibility. Given an incomplete request, it may infer requirements, choose an architecture, fill in missing details, and implement the result. Some of that work resembles what we ask another developer to do.
 
 Consider the request: "Make this endpoint faster."
 
-A compiler can optimize the implementation within language rules. An assistant might add caching. That introduces decisions about freshness, authorization, invalidation, and memory use. The code can compile and pass existing tests while introducing a behavior nobody intended.
+A compiler can optimize within language rules. An assistant might add caching, introducing decisions about freshness, authorization, invalidation, and memory use. The code can compile and pass existing tests while introducing behavior nobody intended.
 
-The assistant may make excellent decisions. The question is how we establish that they are appropriate for this application.
+With a dependable compiler, we can reason about the source and rely on translation to preserve its meaning. With an assistant generating the source, we still need to establish that the proposed meaning is the one we wanted. A tightly specified transformation leaves less room for interpretation than a request to design an entire feature.
 
-That changes where verification belongs. With a dependable compiler, we can usually reason about the source program and rely on the translation to preserve its meaning. With an assistant generating the source, we still need to establish that the proposed meaning is the one we wanted. A natural-language request often leaves more room for interpretation than a program written in a formal language.
+## What varies, and what must hold?
 
-This is also task-dependent. An assistant applying a tightly specified transformation has less freedom than one asked to design an entire feature. Calling both activities "AI coding" hides a substantial difference in what we are delegating.
-
-## Determinism needs a more careful comparison
-
-It is tempting to describe the difference as deterministic tools versus nondeterministic LLMs. That is too broad. We need to say what can vary and what must remain reliable despite that variation.
+Describing the difference as deterministic tools versus nondeterministic LLMs is too broad. We need to distinguish variation from violations of a contract.
 
 | System | What can vary? | What correctness depends on |
 | --- | --- | --- |
@@ -63,49 +47,35 @@ It is tempting to describe the difference as deterministic tools versus nondeter
 | Garbage collector | Collection timing, pauses, and memory consumption | Preserving reachable objects while reclaiming memory |
 | LLM coding assistant | Interpretation, implementation strategy, and generated code | Satisfying the intended requirements and constraints |
 
-Changing a compiler version or its settings changes the inputs to the build; different output there is not itself evidence of nondeterminism. With fixed inputs and a controlled environment, compilation can be repeatable. Hardware and runtimes introduce other forms of variability, especially in concurrent execution.
+Changing a compiler version or its settings changes the inputs; different output there is not itself evidence of nondeterminism. With fixed inputs and a controlled environment, compilation can be repeatable. Hardware and runtimes introduce other variability, especially in concurrent execution.
 
-LLM generation can produce different answers to the same visible request. Sampling is one source of variation; the surrounding context, model version, and tool results also matter. A repeatable workflow requires controlling more than the wording of the prompt.
+LLM generation can produce different answers to the same visible request. Sampling is one source of variation; context, model version, and tool results also matter. Reproducing a result requires controlling more than the prompt.
 
-The distinction I care about is where variation can appear. A correct GC may collect at different moments while preserving reachable objects. An assistant's different interpretations can change the application's intended behavior.
+The distinction I care about is where variation appears. A correct GC may collect at different moments while preserving reachable objects. An assistant's different interpretations can change application behavior.
 
-For example, ask it to "add retries" to an operation that submits a payment. One implementation might use an idempotency key and retry only appropriate failures. Another might blindly repeat the request after any timeout. If the first request succeeded but its response was lost, the second implementation could submit the payment again.
+Ask it to "add retries" to an operation that submits a payment. One implementation might use an idempotency key and retry only appropriate failures. Another might blindly repeat the request after any timeout. If the first request succeeded but its response was lost, the second implementation could submit the payment again.
 
-Both implementations may compile. Their difference is a business rule, not just an implementation detail.
+Both may compile. Their difference affects a business rule.
 
-That does not mean runtime variation is harmless. Pauses can violate latency requirements, and thread scheduling can expose races. Every abstraction has boundaries. The point is to identify those boundaries before treating different tools as equivalent.
+Repeatability asks whether the same inputs produce the same output. Correctness asks whether that output satisfies the requirements. A deterministic tool can produce the same wrong result every time; a nondeterministic process can produce several equally valid solutions. Making an LLM repeatable would help debugging without establishing correctness.
 
-## Repeatability and correctness are separate properties
+## What verification actually requires
 
-Repeatability asks whether the same inputs produce the same output. Correctness asks whether that output satisfies the requirements.
+Generating code and running it are separate activities. A saved and committed patch is a fixed artifact. The model's generation process does not automatically make the program's execution nondeterministic. Calling an LLM at runtime introduces additional variability.
 
-A deterministic tool can produce the same wrong result every time. A nondeterministic process can produce several different, equally valid solutions. Making an LLM repeatable would help reproduce failures and compare changes. It would not, by itself, make its interpretation of a requirement correct.
+We can allow flexibility in producing a candidate, then evaluate it against explicit requirements. Stronger specifications and independent checks make broader delegation reasonable.
 
-There is also a distinction between generating code and running it. Once a generated patch is saved, reviewed, and committed, it is a fixed artifact. The model's generation process does not automatically make that program's execution nondeterministic. An application that calls an LLM at runtime has an additional source of variability to manage.
+Tests help, but their value depends on what they test. If the assistant writes an implementation and tests based on the same mistaken assumption, green tests can reinforce the mistake. Review must still ask whether the expected behavior is right. The same problem exists when humans write the code and tests.
 
-This gives us a practical way to use AI: allow flexibility in producing a candidate, then evaluate the candidate against requirements we can actually check. Stronger specifications and independent checks can make broader delegation reasonable.
-
-Tests help, but their value depends on what they test. If the assistant writes both an implementation and tests based on the same mistaken assumption, green tests can reinforce the mistake. Review still needs to ask whether the expected behavior is right. The same problem exists when humans write the code and tests.
-
-## When the analogy becomes a judgment about developers
-
-One remark I overheard captured the historical comparison neatly:
-
-> Feels a bit like 90s devs not wanting to let go of manual memory management.
-
-It raises a fair question about attachment to control. But it also offers that attachment as an explanation for skepticism before examining the objection. A developer who refuses to try a tool and a developer who uses it extensively but still finds consequential mistakes need different conversations.
-
-The history of a successful abstraction cannot establish the reliability of a new one. We still have to examine the responsibility being delegated, its failure modes, and the cost of checking the result. Earlier adoption decisions also involved real trade-offs; they were not simply contests between progress and stubbornness.
-
-The useful challenge is whether our verification habits still match the evidence. That question leaves room both for increasing autonomy and for retaining checks that continue to catch important errors.
+[Anthropic's December 2024 guidance on building agents](https://www.anthropic.com/engineering/building-effective-agents) discusses autonomy's costs, compounding errors, environmental feedback, testing, and human checkpoints. Its tooling discussion now carries an age warning; these principles remain relevant to evaluating a workflow.
 
 ## Trust should describe a particular workflow
 
 "Trust AI more" leaves too much unspecified. Trust it to suggest alternatives? Edit a function? Open a pull request? Merge a database migration? Act on production data?
 
-Those decisions have different consequences and different verification costs. I can reasonably grant substantial freedom for one and require close review for another.
+Those decisions have different consequences and verification costs. I can reasonably grant substantial freedom for one and require close review for another.
 
-Even [Anthropic's guidance on building agents](https://www.anthropic.com/engineering/building-effective-agents) discusses the costs of autonomy, the possibility of compounding errors, and the value of environmental feedback, testing, and human checkpoints. Useful autonomy depends on the surrounding workflow.
+The history of a successful abstraction does not establish the reliability of a new one. Earlier adoption decisions involved real trade-offs; skepticism alone tells us little about whether an objection is justified.
 
 For a team deciding how much to delegate, I would start with concrete questions:
 
@@ -114,10 +84,10 @@ For a team deciding how much to delegate, I would start with concrete questions:
 - Which mistakes do our checks catch, and which still reach users?
 - Can we detect and recover from a bad change cheaply?
 
-The comparison should include human work under the same conditions. Requiring perfection from AI while overlooking familiar human errors would give us a distorted answer. Counting generated code while ignoring the effort to maintain it would give us another.
+The comparison should include human work under the same conditions. Requiring perfection from AI while overlooking familiar human errors would distort the answer. Counting generated code while ignoring maintenance effort would do the same.
 
 The question I would bring back to a discussion about trust is:
 
 > Which responsibilities can we now delegate reliably, what evidence supports that, and what verification still needs to remain?
 
-Compilers, garbage collectors, and hardware show how much work we can delegate when the boundaries are dependable. LLMs may let us delegate substantially more, including work that requires interpretation and judgment. The scope of that opportunity makes understanding the contract and gathering evidence more valuable. Trust can grow as the workflow earns it.
+Trust can grow as the workflow earns it.
