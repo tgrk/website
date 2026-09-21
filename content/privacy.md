@@ -37,14 +37,14 @@ We use the collected information to:
 
 ### Cookies
 
-Our website uses essential browser storage for functionality and to remember your analytics consent choice. Analytics cookies/scripts are optional and are enabled only after explicit consent.
+Our website uses essential browser storage for functionality and to remember your analytics consent choice. Analytics cookies/scripts are optional and are enabled only after explicit consent. Blog post pages also load Disqus, which may set its own cookies.
 
 ### Third-Party Services
 
 We may use the following third-party services:
 - **Font Delivery**: For web fonts (served from CDN)
 - **Google Analytics 4 (optional)**: Enabled only after you opt in via consent banner
-- **Giscus / GitHub Discussions (blog comments, when enabled)**: Post pages load the comment widget from giscus.app. Commenting requires signing in with GitHub; comments and reactions are stored publicly in GitHub Discussions. See [Giscus](https://giscus.app) and [GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+- **Disqus (blog comments)**: Post pages load the comment widget from Disqus, which may process usage data and set cookies. See the [Disqus privacy policy](https://disqus.com/privacy-policy/).
 
 These services may collect limited data as described in their respective privacy policies.
 
