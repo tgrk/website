@@ -3,7 +3,7 @@ title: "LLMs, compilers, and the question of trust"
 cover: "/img/llm-trust/cover.png"
 tags: ["LLM", "AI", "software", "technology"]
 date: 2026-09-20T00:00:00+02:00
-draft: true
+draft: false
 featured: true
 description: "Does trusting compilers, garbage collectors, and hardware mean we should trust LLMs in the same way? A look at abstraction, determinism, and the evidence behind delegation."
 ---
@@ -16,7 +16,7 @@ The appeal is clear: software development advances by moving responsibilities in
 
 We already trust systems whose work we do not inspect in full. If my standard for trusting software is that I personally wrote every line, that standard deserves questioning. Personal authorship does not establish correctness.
 
-An LLM lets us describe a desired result at a higher level and delegate more of the implementation. The question is which details we can safely stop thinking about, and under what conditions.
+An LLM lets us describe a desired result at a higher level and delegate more of the implementation. The question is which details we can safely stop thinking about, and under what conditions. [This account on X](https://x.com/v0xium/status/2101526107128529120) illustrates why those conditions matter.
 
 ## What exactly are we delegating?
 
@@ -61,7 +61,7 @@ Repeatability asks whether the same inputs produce the same output. Correctness 
 
 ## What verification actually requires
 
-Generating code and running it are separate activities. A saved and committed patch is a fixed artifact. The model's generation process does not automatically make the program's execution nondeterministic. Calling an LLM at runtime introduces additional variability.
+Generating code and running it are separate activities. A saved and committed patch is a fixed artifact. The model's generation process does not automatically make the program's execution nondeterministic. Calling an LLM at runtime introduces additional variability. The surrounding harness—the software that manages context, tools, and execution—can also affect the outcome.
 
 We can allow flexibility in producing a candidate, then evaluate it against explicit requirements. Stronger specifications and independent checks make broader delegation reasonable.
 
