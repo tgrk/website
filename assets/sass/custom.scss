@@ -242,6 +242,13 @@ samp {
   }
 }
 
+.blog-info,
+.project-info,
+.project-gallery-info {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .project-gallery-content {
   align-items: center;
   min-height: 100px;
@@ -295,6 +302,7 @@ samp {
 
 .blog-meta {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
   font-size: 0.85rem;
   color: $text-light;
@@ -718,7 +726,39 @@ samp {
 
 @media (max-width: 736px) {
   :root {
-    --content-gutter: 1cm;
+    --content-gutter: 1.25rem;
+  }
+
+  .banner.style1.fullscreen {
+    min-height: 0;
+    flex-direction: column-reverse;
+
+    .image {
+      width: 100%;
+      height: 30vh;
+      height: 30svh;
+      max-height: 18rem;
+    }
+
+    .content {
+      width: 100%;
+      min-height: 0;
+      padding: 2rem var(--content-gutter);
+    }
+  }
+
+  .post-page {
+    padding-right: var(--content-gutter);
+    padding-left: var(--content-gutter);
+  }
+
+  .resume-skill-grid {
+    grid-template-columns: repeat(auto-fit, minmax(unquote("min(220px, 100%)"), 1fr));
+  }
+
+  .post-tags > a,
+  .topic-tags > a {
+    min-height: 44px;
   }
 }
 
