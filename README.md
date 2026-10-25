@@ -93,3 +93,9 @@ Fast regression check:
 ```bash
 ./scripts/check-link-targets.sh
 ```
+
+Mobile menu behavior (requires Node.js; builds into a temporary directory):
+
+```bash
+node scripts/check-mobile-nav.cjs
+```

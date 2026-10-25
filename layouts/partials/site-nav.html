@@ -1,8 +1,13 @@
 <header class="site-nav">
     <div class="site-nav-inner">
         <a href="/" class="site-nav-logo">{{ .Site.Title }}</a>
-        <button class="site-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
-        <nav class="site-nav-links" id="site-nav-links">
+        <button class="site-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav-links">
+            <span>Menu</span>
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                <path d="M4 6h16" /><path d="M4 12h16" /><path d="M4 18h16" />
+            </svg>
+        </button>
+        <nav class="site-nav-links" id="site-nav-links" aria-label="Main navigation">
             <a href="/#about"{{ if .IsHome }} aria-current="location"{{ else if eq .RelPermalink ("/about/" | relURL) }} aria-current="true"{{ end }}>About</a>
             <a href="/post/"{{ if or (eq .Section "post") (eq .Section "tags") }} aria-current="true"{{ end }}>Blog</a>
             <a href="/#projects"{{ if eq .RelPermalink ("/projects/" | relURL) }} aria-current="true"{{ end }}>Projects</a>
@@ -16,6 +21,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var toggle = document.querySelector(".site-nav-toggle");
   var links = document.getElementById("site-nav-links");
   if (!toggle || !links) return;
+  var header = toggle.closest(".site-nav");
+  var mobile = window.matchMedia("(max-width: 900px)");
+  header.classList.add("is-enhanced");
+  function setOpen(isOpen) {
+    links.classList.toggle("is-open", isOpen);
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
   {{ if .IsHome }}
   var sections = [
     { element: document.getElementById("about"), link: links.querySelector('[href="/#about"]') },
@@ -37,8 +50,27 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCurrentSection();
   {{ end }}
   toggle.addEventListener("click", function () {
-    var isOpen = links.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    setOpen(toggle.getAttribute("aria-expanded") !== "true");
+  });
+  links.addEventListener("click", function (event) {
+    if (!mobile.matches || !event.target.closest("a")) return;
+    toggle.focus();
+    setOpen(false);
+  });
+  document.addEventListener("click", function (event) {
+    if (!header.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      toggle.focus();
+      setOpen(false);
+    }
+  });
+  header.addEventListener("focusout", function (event) {
+    if (!header.contains(event.relatedTarget)) setOpen(false);
+  });
+  mobile.addEventListener("change", function () {
+    setOpen(false);
   });
 });
 </script>
