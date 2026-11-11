@@ -5,7 +5,7 @@
     <h2 id="exchange-title" class="visually-hidden">{{ .title | default "Featured writing" }}</h2>
     <p class="exchange-lanes" aria-hidden="true"><span>Martin</span><span>You</span></p>
     <ol class="exchange-log">
-        {{ range $i, $post := sort $posts "Date" "asc" }}
+        {{ range $i, $post := $posts }}
         <li class="msg" style="--i: {{ $i }}">
             <svg class="msg-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line x1="0" y1="0" x2="100" y2="100" /></svg>
             <a class="msg-label" href="{{ .RelPermalink }}">
