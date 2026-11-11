@@ -5,7 +5,7 @@ hugo --minify --cleanDestinationDir >/tmp/hugo-build.log
 
 test -f public/resume/index.html
 test -f public/tags/index.html
-rg -q 'href=/post/api-diff-cli-tool/' public/index.html
+rg -q 'href=/post/api-diff-cli-tool/' public/post/index.html
 test -f public/post/apidiff-cli-tool/index.html
 rg -q 'Browse by topic' public/post/index.html
 rg -q 'href=/tags/elixir/' public/post/index.html
