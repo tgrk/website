@@ -7,7 +7,7 @@ The site uses the `hugo-story` theme with local overrides for layout, navigation
 ## Quickstart
 
 Prerequisites:
-- Hugo Extended (required for SCSS pipeline)
+- Hugo (the extended build is not required; the stylesheet is plain CSS)
 - `rg` (ripgrep) for local validation scripts
 
 Run locally:
@@ -34,7 +34,7 @@ hugo new post/my-new-post.md
 - `content/`: page and post content.
 - `data/`: homepage and list datasets (`banner.yml`, `gallery.yml`, `projects.yml`, `resume.toml`, etc.).
 - `layouts/`: local template overrides and custom page layouts.
-- `assets/sass/custom.scss`: the complete site stylesheet (theme CSS is not loaded).
+- `assets/css/site.css`: the complete site stylesheet, plain CSS with no Sass step (theme CSS is not loaded).
 - `scripts/`: prepublish and regression checks.
 - `themes/hugo-story/`: upstream theme source.
 
@@ -67,7 +67,7 @@ Comments use Hugo's built-in Disqus template and the `wiso` shortname in `[servi
 ## Theme and Approach Notes
 
 - Theme base: `hugo-story` supplies only `baseof.html` and the Hugo plumbing. Its CSS, jQuery bundle and FontAwesome are no longer loaded (`layouts/partials/scripts.html` is intentionally empty).
-- Styling: `assets/sass/custom.scss` is the whole stylesheet. Tokens live on `:root` with a dark-mode override; display type is Fira Sans Extra Condensed, reading type Literata, code Fira Code.
+- Styling: `assets/css/site.css` is the whole stylesheet. Tokens live on `:root` with a dark-mode override; display type is Fira Sans Extra Condensed, reading type Literata, code Fira Code.
 - Homepage hero: `layouts/partials/featured-posts.html` draws the three newest `featured: true` posts as a space-time (message) diagram, ending with an email reply.
 - Relaunch direction:
   - split CTA emphasis (writing first, consulting/contact secondary),
