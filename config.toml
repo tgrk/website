@@ -45,10 +45,7 @@ canonifyURLs = false
   instagram = "https://www.instagram.com/martinwiso/"
 
 [Params.favicon]
-  use = true
-  logo_jpg = "/img/favicon-32x32.png"
-  logo_png = "/img/favicon-32x32.png"
-  logo_svg = "/img/android-chrome-192x192.png"
+  use = true  # icons live in layouts/partials/favicon.html
 
 [markup.highlight]
   # Code blocks sit on a dark aubergine panel in both colour schemes.
