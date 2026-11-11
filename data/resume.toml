@@ -288,6 +288,10 @@ interests = [
     level = "95"
 
   [[skill.list]]
+    name = "REST/GraphQL"
+    level = "95"
+
+  [[skill.list]]
     name = "System Architecture"
     level = "90"
 
@@ -296,7 +300,7 @@ interests = [
     level = "85"
 
   [[skill.list]]
-    name = "GraphQL"
+    name = "AI/LLM"
     level = "80"
 
   [[skill.list]]
