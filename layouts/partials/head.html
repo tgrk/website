@@ -13,32 +13,13 @@
 	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Fira+Sans+Extra+Condensed:wght@500;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+	<meta name="color-scheme" content="light dark">
 
-	<!-- CSS -->
-	{{ if hugo.IsServer }}
-	{{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "scss/main.scss" . | toCSS (dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" false) }}
-	<link rel="stylesheet" href="{{ ($style).RelPermalink }}">
-	{{ $custom := resources.Get "sass/custom.scss" | toCSS (dict "targetPath" "css/custom.css" "outputStyle" "compressed" "enableSourceMap" false) }}
-	<link rel="stylesheet" href="{{ ($custom).RelPermalink }}">
-	{{ else }}
-	{{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "scss/main.scss" . | toCSS (dict "targetPath" "css/main.css" "enableSourceMap" false) }}
-	<link rel="stylesheet" href="{{ ($style | minify).RelPermalink }}">
+	<!-- CSS: the site's own stylesheet replaces the theme's main.scss -->
 	{{ $custom := resources.Get "sass/custom.scss" | toCSS (dict "targetPath" "css/custom.css" "enableSourceMap" false) }}
-	<link rel="stylesheet" href="{{ ($custom | minify).RelPermalink }}">
-	{{ end }}
-	{{ if hugo.IsServer }}
-	{{ $noscript := resources.Get "sass/noscript.scss" | resources.ExecuteAsTemplate "noscript.scss" . | toCSS (dict "targetPath" "css/noscript.css" "enableSourceMap" false) }}
-	<noscript><link rel="stylesheet" href="{{ ($noscript).RelPermalink }}" /></noscript>
-	{{ else }}
-	{{ $noscript := resources.Get "sass/noscript.scss" | resources.ExecuteAsTemplate "noscript.scss" . | toCSS (dict "targetPath" "css/noscript.css" "enableSourceMap" false) }}
-	<noscript><link rel="stylesheet" href="{{ ($noscript | minify).RelPermalink }}" /></noscript>
-	{{end}}
-
-	<!-- FontAwesome CSS -->
-	{{ range .Site.Params.asset.fontawesome_css -}}
-		<link rel="stylesheet" href="{{ . | absURL }}">
-	{{- end }}
+	{{ if not hugo.IsServer }}{{ $custom = $custom | minify | fingerprint }}{{ end }}
+	<link rel="stylesheet" href="{{ $custom.RelPermalink }}">
 
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9G56ZYB7VV"></script>

@@ -1,0 +1,7 @@
+<section class="block" {{ with .id }}id="{{ . }}"{{ end }}>
+    {{ with .title }}<h2>{{ . }}</h2>{{ end }}
+    <div class="block-body">
+        {{ with .image }}<img class="block-portrait" src="{{ . | relURL }}" alt="Portrait of {{ site.Params.author }}" width="640" height="640" loading="lazy" decoding="async" />{{ end }}
+        <div class="prose">{{ .content | safeHTML }}</div>
+    </div>
+</section>

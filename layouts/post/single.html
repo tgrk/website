@@ -17,7 +17,7 @@
 <main class="post-page" id="main">
     <article class="post-article" aria-labelledby="post-title">
         <header class="post-header">
-            <a class="post-back" href="{{ "post/" | relURL }}"><span aria-hidden="true">← </span>All writing</a>
+            <a class="post-back" href="{{ "post/" | relURL }}">All writing</a>
             <h1 id="post-title">{{ .Title }}</h1>
             {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
             <p class="post-meta">
@@ -43,7 +43,7 @@
         </div>
         <footer class="post-footer">
             <p>Thanks for reading.</p>
-            <a href="{{ "post/" | relURL }}">Explore all writing <span aria-hidden="true">→</span></a>
+            <a href="{{ "post/" | relURL }}">More writing</a>
         </footer>
         {{ if ne .Params.comments false }}
         <section class="post-comments" aria-labelledby="comments-title">

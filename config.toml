@@ -37,9 +37,6 @@ canonifyURLs = false
   provider = "ga4"
   consent_required = true
 
-[Params.style]
-  custom = ["sass/custom.scss"]
-
 [Params.social]
   email = "martin@wiso.cz"
   github = "https://github.com/tgrk"
@@ -47,16 +44,12 @@ canonifyURLs = false
   linkedin = "https://www.linkedin.com/in/martinwiso/"
   instagram = "https://www.instagram.com/martinwiso/"
 
-[Params.asset]
-  fontawesome_css = [
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-  ]
-  fontawesome_js = [
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"
-  ]
-
 [Params.favicon]
   use = true
   logo_jpg = "/img/favicon-32x32.png"
   logo_png = "/img/favicon-32x32.png"
   logo_svg = "/img/android-chrome-192x192.png"
+
+[markup.highlight]
+  # Code blocks sit on a dark aubergine panel in both colour schemes.
+  style = "dracula"

@@ -1,11 +1,15 @@
 {{ define "main" }}
 
 	{{ partial "site-nav" . }}
-	{{ partial "banner" hugo.Data.banner }}
-	{{ partial "spotlight" hugo.Data.spotlight1 }}
-	{{ partial "spotlight" hugo.Data.spotlight2 }}
-	{{ partial "featured-posts" hugo.Data.items }}
-	{{ partial "gallery" hugo.Data.gallery }}
+	<main class="home" id="main">
+		<div class="hero-grid">
+			{{ partial "banner" hugo.Data.banner }}
+			{{ partial "featured-posts" hugo.Data.items }}
+		</div>
+		{{ partial "spotlight" hugo.Data.spotlight1 }}
+		{{ partial "spotlight" hugo.Data.spotlight2 }}
+		{{ partial "gallery" hugo.Data.gallery }}
+	</main>
 	{{ partial "footer" . }}
 
 {{ end }}

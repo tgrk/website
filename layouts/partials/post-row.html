@@ -1,0 +1,9 @@
+{{/* One row in a post list. Context: a page. */}}
+<li class="post-row">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+    <div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description | default .Summary | plainify | truncate 160 }}</p>
+        <p class="post-row-meta">{{ .ReadingTime }} min read</p>
+    </div>
+</li>

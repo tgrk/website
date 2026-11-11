@@ -2,13 +2,6 @@
 style: "style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right"
 title: "Martin Wišo"
 subtitle: |
-  Experienced Software Engineer | Distributed Systems | Berlin
+  Software engineer in Berlin
 content: |
   I design and ship reliable distributed systems, API platforms, and AI-assisted tooling for product and infrastructure teams.
-button:
-  label: "Read Writing"
-  link: "#blog"
-image: "/img/headers/profile_portrait.jpg"
-images:
-  - "/img/headers/profile_portrait.jpg"
-  - "/img/headers/profile_solden.jpg"
