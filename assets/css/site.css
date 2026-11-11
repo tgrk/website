@@ -1073,7 +1073,21 @@ nav[aria-label="Post topics"] h2 {
 
 .site-footer-legal a {
   color: inherit;
+}
+
+.site-footer-legal > a {
   margin-left: 0.75rem;
+}
+
+.footer-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.footer-icon-love {
+  fill: var(--signal);
 }
 
 /* ---------- Cookie consent ---------- */
