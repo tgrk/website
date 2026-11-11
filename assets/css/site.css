@@ -1,7 +1,6 @@
-// Site stylesheet. Replaces the hugo-story theme CSS entirely.
-// Identity: message passing. Aubergine ink (Elixir) on cool paper, Erlang red for messages and links only.
-// Type: Fira Sans Extra Condensed (display), Literata (reading), Fira Code (code only).
-
+/* Site stylesheet. Replaces the hugo-story theme CSS entirely. */
+/* Identity: message passing. Aubergine ink (Elixir) on cool paper, Erlang red for messages and links only. */
+/* Type: Fira Sans Extra Condensed (display), Literata (reading), Fira Code (code only). */
 :root {
   --paper: #f2f0f4;
   --paper-raised: #fbfafc;
@@ -11,11 +10,9 @@
   --signal: #b3123a;
   --panel: #261c33;
   --panel-ink: #ece6f2;
-
   --display: 'Fira Sans Extra Condensed', 'Arial Narrow', sans-serif;
   --text: 'Literata', Georgia, serif;
   --code: 'Fira Code', ui-monospace, monospace;
-
   --gutter: clamp(1rem, 4vw, 3rem);
   --wide: 76rem;
   --measure: 42rem;
@@ -34,8 +31,7 @@
   }
 }
 
-// ---------- Base ----------
-
+/* ---------- Base ---------- */
 *,
 *::before,
 *::after {
@@ -74,10 +70,22 @@ h4 {
   text-wrap: balance;
 }
 
-h1 { font-size: clamp(2.75rem, 6vw, 3.75rem); font-weight: 800; }
-h2 { font-size: clamp(1.75rem, 3.5vw, 2.25rem); }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.3125rem; }
+h1 {
+  font-size: clamp(2.75rem, 6vw, 3.75rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.3125rem;
+}
 
 p,
 ul,
@@ -89,10 +97,10 @@ a {
   color: var(--signal);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
+}
 
-  &:hover {
-    text-decoration-thickness: 2px;
-  }
+a:hover {
+  text-decoration-thickness: 2px;
 }
 
 img {
@@ -123,8 +131,7 @@ samp {
   white-space: nowrap;
 }
 
-// ---------- Navigation ----------
-
+/* ---------- Navigation ---------- */
 .site-nav {
   position: sticky;
   top: 0;
@@ -155,25 +162,25 @@ samp {
 .site-nav-links {
   display: flex;
   gap: 1.5rem;
+}
 
-  a {
-    font-family: var(--display);
-    font-weight: 500;
-    font-size: 1.125rem;
-    color: var(--ink-2);
-    text-decoration: none;
-    padding-block: 0.25rem;
-    border-bottom: 2px solid transparent;
+.site-nav-links a {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--ink-2);
+  text-decoration: none;
+  padding-block: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
 
-    &:hover {
-      color: var(--ink);
-    }
+.site-nav-links a:hover {
+  color: var(--ink);
+}
 
-    &[aria-current] {
-      color: var(--ink);
-      border-bottom-color: var(--signal);
-    }
-  }
+.site-nav-links a[aria-current] {
+  color: var(--ink);
+  border-bottom-color: var(--signal);
 }
 
 .site-nav-toggle {
@@ -188,43 +195,46 @@ samp {
   color: var(--ink);
   font: 500 1.125rem var(--display);
   cursor: pointer;
+}
 
-  svg {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-  }
+.site-nav-toggle svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
 
-  path {
-    transform-box: fill-box;
-    transform-origin: center;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
+.site-nav-toggle path {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
 
-  &[aria-expanded="true"] {
-    path:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    path:nth-child(2) { opacity: 0; }
-    path:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-  }
+.site-nav-toggle[aria-expanded="true"] path:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-nav-toggle[aria-expanded="true"] path:nth-child(2) {
+  opacity: 0;
+}
+
+.site-nav-toggle[aria-expanded="true"] path:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 @media (max-width: 900px) {
   .site-nav.is-enhanced .site-nav-toggle {
     display: inline-flex;
   }
-
   .site-nav-links {
     flex-wrap: wrap;
     gap: 0 1.25rem;
-
-    a {
-      display: flex;
-      align-items: center;
-      min-height: 44px;
-    }
   }
-
+  .site-nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
   .site-nav.is-enhanced .site-nav-links {
     display: none;
     position: absolute;
@@ -239,20 +249,17 @@ samp {
     background: var(--paper-raised);
     border: 1px solid var(--rule);
     border-radius: 3px;
-
-    &.is-open {
-      display: flex;
-    }
-
-    a[aria-current] {
-      border-bottom-color: transparent;
-      color: var(--signal);
-    }
+  }
+  .site-nav.is-enhanced .site-nav-links.is-open {
+    display: flex;
+  }
+  .site-nav.is-enhanced .site-nav-links a[aria-current] {
+    border-bottom-color: transparent;
+    color: var(--signal);
   }
 }
 
-// ---------- Homepage: hero + message diagram ----------
-
+/* ---------- Homepage: hero + message diagram ---------- */
 .home {
   max-width: var(--wide);
   margin: 0 auto;
@@ -263,10 +270,12 @@ samp {
   display: grid;
   gap: 3rem;
   padding-block: clamp(3rem, 8vh, 6rem) 4rem;
-  min-height: unquote("min(calc(100svh - 4.5rem), 54rem)");
+  min-height: min(calc(100svh - 4.5rem), 54rem);
   align-content: center;
+}
 
-  @media (min-width: 960px) {
+@media (min-width: 960px) {
+  .hero-grid {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     gap: 5rem;
     align-items: center;
@@ -302,25 +311,25 @@ samp {
   font-family: var(--display);
   font-weight: 700;
   font-size: 1.125rem;
+}
 
-  span {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transform: translateX(-5px);
+.exchange-lanes span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translateX(-5px);
+}
 
-    &::before {
-      content: '';
-      width: 10px;
-      height: 10px;
-      background: var(--ink);
-    }
+.exchange-lanes span::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--ink);
+}
 
-    &:last-child {
-      flex-direction: row-reverse;
-      transform: translateX(5px);
-    }
-  }
+.exchange-lanes span:last-child {
+  flex-direction: row-reverse;
+  transform: translateX(5px);
 }
 
 .exchange-log {
@@ -331,20 +340,24 @@ samp {
   padding: 1rem 0 2rem;
   display: grid;
   gap: 1.25rem;
+  /* The two process lines. */
+}
 
-  // The two process lines.
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: var(--line);
-    background: var(--ink);
-  }
+.exchange-log::before, .exchange-log::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--line);
+  background: var(--ink);
+}
 
-  &::before { left: calc(var(--line) / -2); }
-  &::after { right: calc(var(--line) / -2); }
+.exchange-log::before {
+  left: calc(var(--line) / -2);
+}
+
+.exchange-log::after {
+  right: calc(var(--line) / -2);
 }
 
 .msg {
@@ -354,48 +367,45 @@ samp {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  // Send event (hollow) and receive event (filled).
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    border: 2px solid var(--signal);
-  }
-
-  &::before {
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    background: var(--paper);
-  }
-
-  &::after {
-    bottom: 0;
-    right: 0;
-    transform: translate(50%, 50%);
-    background: var(--signal);
-    animation: msg-arrive 200ms ease-out both;
-    animation-delay: calc(var(--delay) + 550ms);
-  }
+  /* Send event (hollow) and receive event (filled). */
 }
 
-.msg-reply {
-  &::before {
-    left: auto;
-    right: 0;
-    transform: translate(50%, -50%);
-  }
+.msg::before, .msg::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid var(--signal);
+}
 
-  &::after {
-    right: auto;
-    left: 0;
-    transform: translate(-50%, 50%);
-  }
+.msg::before {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  background: var(--paper);
+}
+
+.msg::after {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+  background: var(--signal);
+  animation: msg-arrive 200ms ease-out both;
+  animation-delay: calc(var(--delay) + 550ms);
+}
+
+.msg-reply::before {
+  left: auto;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.msg-reply::after {
+  right: auto;
+  left: 0;
+  transform: translate(-50%, 50%);
 }
 
 .msg-path {
@@ -404,16 +414,15 @@ samp {
   width: 100%;
   height: 100%;
   overflow: visible;
-
-  line {
-    stroke: var(--signal);
-    stroke-width: 2px;
-    vector-effect: non-scaling-stroke;
-  }
-
-  // Drawn in by unclipping from the send corner; dash tricks break with non-scaling strokes.
+  /* Drawn in by unclipping from the send corner; dash tricks break with non-scaling strokes. */
   animation: msg-send 550ms cubic-bezier(0.4, 0, 0.2, 1) both;
   animation-delay: var(--delay);
+}
+
+.msg-path line {
+  stroke: var(--signal);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
 }
 
 .msg-reply .msg-path {
@@ -424,27 +433,27 @@ samp {
   position: relative;
   z-index: 1;
   display: block;
-  max-width: unquote("min(19rem, 70%)");
+  max-width: min(19rem, 70%);
   padding: 0.25rem 0.625rem;
   background: var(--paper);
   color: var(--ink);
   text-align: center;
   text-decoration: none;
-
-  time,
-  .msg-meta {
-    display: block;
-    font-size: 0.875rem;
-    color: var(--ink-2);
-  }
-
-  &:hover .msg-title {
-    text-decoration: underline 2px var(--signal);
-    text-underline-offset: 0.15em;
-  }
 }
 
-// Wide screens: the label sits in the empty triangle beside its line, so the whole message stays visible.
+.msg-label time,
+.msg-label .msg-meta {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+
+.msg-label:hover .msg-title {
+  text-decoration: underline 2px var(--signal);
+  text-underline-offset: 0.15em;
+}
+
+/* Wide screens: the label sits in the empty triangle beside its line, so the whole message stays visible. */
 @media (min-width: 640px) {
   .msg {
     min-height: 10rem;
@@ -452,18 +461,15 @@ samp {
     justify-content: flex-end;
     padding: 0.75rem 1.5rem 0 0;
   }
-
   .msg-reply {
     justify-content: flex-start;
     padding: 0.75rem 0 0 1.5rem;
   }
-
   .msg-label {
     max-width: 44%;
     padding: 0;
     text-align: right;
   }
-
   .msg-reply .msg-label {
     text-align: left;
   }
@@ -490,40 +496,54 @@ samp {
 }
 
 @keyframes msg-send {
-  from { clip-path: inset(0 100% 100% 0); }
-  to { clip-path: inset(0 0 0 0); }
+  from {
+    clip-path: inset(0 100% 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @keyframes msg-reply {
-  from { clip-path: inset(0 0 100% 100%); }
-  to { clip-path: inset(0 0 0 0); }
+  from {
+    clip-path: inset(0 0 100% 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @keyframes msg-arrive {
-  from { opacity: 0; scale: 0.4; }
-  to { opacity: 1; scale: 1; }
+  from {
+    opacity: 0;
+    scale: 0.4;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .msg::after,
-  .msg-path {
+.msg-path {
     animation: none;
   }
 }
 
-// ---------- Homepage sections ----------
-
+/* ---------- Homepage sections ---------- */
 .block {
   padding-block: clamp(3rem, 8vw, 6rem);
+}
 
-  @media (min-width: 960px) {
+@media (min-width: 960px) {
+  .block {
     display: grid;
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     column-gap: 5rem;
-
-    > h2 {
-      grid-row: span 3;
-    }
+  }
+  .block > h2 {
+    grid-row: span 3;
   }
 }
 
@@ -531,11 +551,11 @@ samp {
   display: grid;
   gap: 2rem;
   align-items: start;
+}
 
-  @media (min-width: 640px) {
-    &:has(.block-portrait) {
-      grid-template-columns: 11rem minmax(0, 1fr);
-    }
+@media (min-width: 640px) {
+  .block-body:has(.block-portrait) {
+    grid-template-columns: 11rem minmax(0, 1fr);
   }
 }
 
@@ -549,18 +569,18 @@ samp {
 
 .prose {
   max-width: var(--measure);
+}
 
-  > :last-child {
-    margin-bottom: 0;
-  }
+.prose > :last-child {
+  margin-bottom: 0;
+}
 
-  li {
-    margin-bottom: 0.35em;
-  }
+.prose li {
+  margin-bottom: 0.35em;
+}
 
-  strong {
-    font-weight: 600;
-  }
+.prose strong {
+  font-weight: 600;
 }
 
 .block-intro {
@@ -575,29 +595,30 @@ samp {
   font-weight: 500;
 }
 
-// ---------- Projects ----------
-
+/* ---------- Projects ---------- */
 .project-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   gap: 2rem 3rem;
+}
 
-  @media (min-width: 640px) {
+@media (min-width: 640px) {
+  .project-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  a {
-    display: block;
-    color: var(--ink);
-    text-decoration: none;
+.project-list a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+}
 
-    &:hover .project-name {
-      text-decoration: underline 2px var(--signal);
-      text-underline-offset: 0.15em;
-    }
-  }
+.project-list a:hover .project-name {
+  text-decoration: underline 2px var(--signal);
+  text-underline-offset: 0.15em;
 }
 
 .project-name {
@@ -622,23 +643,22 @@ samp {
   color: var(--ink-2);
 }
 
-// ---------- Interior pages ----------
-
+/* ---------- Interior pages ---------- */
 .wrapper > .inner {
   max-width: var(--measure);
   margin: 0 auto;
   padding: clamp(2.5rem, 7vw, 5rem) var(--gutter) 2rem;
+  /* The projects page needs room for two columns. */
+}
 
-  // The projects page needs room for two columns.
-  &:has(.project-list) {
-    max-width: var(--wide);
-  }
+.wrapper > .inner:has(.project-list) {
+  max-width: var(--wide);
+}
 
-  > header > p,
-  > h1 + p {
-    color: var(--ink-2);
-    font-size: 1.3125rem;
-  }
+.wrapper > .inner > header > p,
+.wrapper > .inner > h1 + p {
+  color: var(--ink-2);
+  font-size: 1.3125rem;
 }
 
 .topic-tags {
@@ -649,15 +669,15 @@ samp {
   font-size: 1.125rem;
   font-weight: 500;
   margin-bottom: 3rem;
+}
 
-  a {
-    text-decoration: none;
-    color: var(--ink);
+.topic-tags a {
+  text-decoration: none;
+  color: var(--ink);
+}
 
-    &:hover {
-      color: var(--signal);
-    }
-  }
+.topic-tags a:hover {
+  color: var(--signal);
 }
 
 .topic-count {
@@ -681,36 +701,38 @@ nav[aria-label="Post topics"] h2 {
   display: grid;
   gap: 0.25rem 1.5rem;
   padding-block: 1.5rem;
+}
 
-  @media (min-width: 640px) {
+@media (min-width: 640px) {
+  .post-row {
     grid-template-columns: 6rem minmax(0, 1fr);
   }
+}
 
-  time {
-    font-size: 0.875rem;
-    color: var(--ink-2);
-    font-variant-numeric: tabular-nums;
-    padding-top: 0.35rem;
-  }
+.post-row time {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.35rem;
+}
 
-  h3 {
-    margin-bottom: 0.35rem;
+.post-row h3 {
+  margin-bottom: 0.35rem;
+}
 
-    a {
-      color: var(--ink);
-      text-decoration: none;
+.post-row h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
 
-      &:hover {
-        text-decoration: underline 2px var(--signal);
-        text-underline-offset: 0.15em;
-      }
-    }
-  }
+.post-row h3 a:hover {
+  text-decoration: underline 2px var(--signal);
+  text-underline-offset: 0.15em;
+}
 
-  p {
-    margin: 0;
-    font-size: 1rem;
-  }
+.post-row p {
+  margin: 0;
+  font-size: 1rem;
 }
 
 .post-row-meta {
@@ -719,101 +741,120 @@ nav[aria-label="Post topics"] h2 {
   font-size: 0.875rem !important;
 }
 
-// ---------- Long-form content ----------
-
+/* ---------- Long-form content ---------- */
 .content,
 .post-body {
-  // Direct children only, so component lists (post rows, projects) inside .content keep their own spacing.
-  > h2 {
-    margin-top: 2.25em;
-  }
-
-  > h3 {
-    margin-top: 1.75em;
-  }
-
-  > ul:not([class]),
-  > ol:not([class]) {
-    padding-left: 1.25em;
-
-    li {
-      margin-bottom: 0.4em;
-    }
-  }
-
-  img {
-    border-radius: 3px;
-  }
-
-  hr {
-    border: 0;
-    border-top: 1px solid var(--rule);
-    margin: 3rem 0;
-  }
-
-  blockquote {
-    margin: 2rem 0;
-    padding-left: 1.25rem;
-    border-left: 3px solid var(--signal);
-    font-style: italic;
-    color: var(--ink-2);
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  :not(pre) > code {
-    font-size: 0.85em;
-    padding: 0.1em 0.3em;
-    border-radius: 3px;
-    background: color-mix(in srgb, var(--ink) 8%, transparent);
-  }
-
-  pre {
-    margin: 0 0 1.5rem;
-    padding: 1rem 1.25rem;
-    overflow-x: auto;
-    font-size: 0.875rem;
-    line-height: 1.6;
-    border-radius: 4px;
-    background: var(--panel) !important; // beats chroma's inline background
-    color: var(--panel-ink);
-  }
-
-  .highlight {
-    margin-bottom: 1.5rem;
-
-    pre {
-      margin: 0;
-    }
-  }
-
-  table {
-    display: block;
-    overflow-x: auto;
-    border-collapse: collapse;
-    margin: 0 0 1.5rem;
-    font-size: 1rem;
-  }
-
-  th,
-  td {
-    text-align: left;
-    vertical-align: top;
-    padding: 0.5rem 1rem 0.5rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  th {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.125rem;
-  }
+  /* Direct children only, so component lists (post rows, projects) inside .content keep their own spacing. */
 }
 
-// ---------- Post page ----------
+.content > h2,
+.post-body > h2 {
+  margin-top: 2.25em;
+}
 
+.content > h3,
+.post-body > h3 {
+  margin-top: 1.75em;
+}
+
+.content > ul:not([class]),
+.content > ol:not([class]),
+.post-body > ul:not([class]),
+.post-body > ol:not([class]) {
+  padding-left: 1.25em;
+}
+
+.content > ul:not([class]) li,
+.content > ol:not([class]) li,
+.post-body > ul:not([class]) li,
+.post-body > ol:not([class]) li {
+  margin-bottom: 0.4em;
+}
+
+.content img,
+.post-body img {
+  border-radius: 3px;
+}
+
+.content hr,
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}
+
+.content blockquote,
+.post-body blockquote {
+  margin: 2rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--signal);
+  font-style: italic;
+  color: var(--ink-2);
+}
+
+.content blockquote p:last-child,
+.post-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.content :not(pre) > code,
+.post-body :not(pre) > code {
+  font-size: 0.85em;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--ink) 8%, transparent);
+}
+
+.content pre,
+.post-body pre {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  border-radius: 4px;
+  background: var(--panel) !important;
+  /* beats chroma's inline background */
+  color: var(--panel-ink);
+}
+
+.content .highlight,
+.post-body .highlight {
+  margin-bottom: 1.5rem;
+}
+
+.content .highlight pre,
+.post-body .highlight pre {
+  margin: 0;
+}
+
+.content table,
+.post-body table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+}
+
+.content th,
+.content td,
+.post-body th,
+.post-body td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.5rem 1rem 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.content th,
+.post-body th {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+/* ---------- Post page ---------- */
 .reading-progress {
   position: fixed;
   top: 0;
@@ -872,24 +913,24 @@ nav[aria-label="Post topics"] h2 {
   font-family: var(--display);
   font-weight: 500;
   font-size: 1rem;
+}
 
-  a {
-    text-decoration: none;
+.post-tags a {
+  text-decoration: none;
+}
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+.post-tags a:hover {
+  text-decoration: underline;
 }
 
 .post-cover {
   margin: 2.5rem 0;
+}
 
-  img {
-    display: block;
-    width: 100%;
-    border-radius: 4px;
-  }
+.post-cover img {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
 }
 
 .post-body {
@@ -906,27 +947,24 @@ nav[aria-label="Post topics"] h2 {
   font-family: var(--display);
   font-size: 1.125rem;
   font-weight: 500;
+}
 
-  p {
-    margin: 0;
-    color: var(--ink-2);
-  }
+.post-footer p {
+  margin: 0;
+  color: var(--ink-2);
 }
 
 .post-comments {
   margin-top: 4rem;
 }
 
-// ---------- Resume ----------
+/* ---------- Resume ---------- */
+.resume-content h2 {
+  margin-top: 2.5em;
+}
 
-.resume-content {
-  h2 {
-    margin-top: 2.5em;
-  }
-
-  ul {
-    padding-left: 1.25em;
-  }
+.resume-content ul {
+  padding-left: 1.25em;
 }
 
 .resume-skill-grid {
@@ -934,8 +972,10 @@ nav[aria-label="Post topics"] h2 {
   padding: 0 !important;
   display: grid;
   gap: 1rem 2rem;
+}
 
-  @media (min-width: 640px) {
+@media (min-width: 640px) {
+  .resume-skill-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -944,11 +984,11 @@ nav[aria-label="Post topics"] h2 {
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
+}
 
-  span {
-    color: var(--ink-2);
-    font-variant-numeric: tabular-nums;
-  }
+.resume-skill-bar-label span {
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
 }
 
 .resume-skill-bar {
@@ -976,10 +1016,10 @@ nav[aria-label="Post topics"] h2 {
   gap: 0.5rem;
   color: var(--ink);
   text-decoration: none;
+}
 
-  &:hover {
-    color: var(--signal);
-  }
+.resume-company-link:hover {
+  color: var(--signal);
 }
 
 .resume-title {
@@ -996,8 +1036,7 @@ nav[aria-label="Post topics"] h2 {
   color: var(--ink-2);
 }
 
-// ---------- Footer ----------
-
+/* ---------- Footer ---------- */
 .site-footer {
   max-width: var(--wide);
   margin: 5rem auto 0;
@@ -1015,30 +1054,29 @@ nav[aria-label="Post topics"] h2 {
   font-family: var(--display);
   font-weight: 500;
   font-size: 1.3125rem;
+}
 
-  a {
-    color: var(--ink);
-    text-decoration: none;
+.site-footer-links a {
+  color: var(--ink);
+  text-decoration: none;
+}
 
-    &:hover {
-      color: var(--signal);
-    }
-  }
+.site-footer-links a:hover {
+  color: var(--signal);
 }
 
 .site-footer-legal {
   margin: 0;
   font-size: 0.875rem;
   color: var(--ink-2);
-
-  a {
-    color: inherit;
-    margin-left: 0.75rem;
-  }
 }
 
-// ---------- Cookie consent ----------
+.site-footer-legal a {
+  color: inherit;
+  margin-left: 0.75rem;
+}
 
+/* ---------- Cookie consent ---------- */
 .cookie-consent {
   position: fixed;
   left: 1rem;
@@ -1051,16 +1089,16 @@ nav[aria-label="Post topics"] h2 {
   background: var(--paper-raised);
   border: 1px solid var(--rule);
   border-radius: 4px;
+}
 
-  &[hidden] {
-    display: none;
-  }
+.cookie-consent[hidden] {
+  display: none;
+}
 
-  p {
-    margin: 0 0 0.75rem;
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
+.cookie-consent p {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .cookie-consent-actions {
@@ -1083,9 +1121,10 @@ nav[aria-label="Post topics"] h2 {
   font-weight: 500;
   font-size: 1.125rem;
   text-decoration: none;
-
-  &.primary {
-    background: var(--ink);
-    color: var(--paper);
-  }
 }
+
+.button.primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+

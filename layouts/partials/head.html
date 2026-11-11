@@ -16,10 +16,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Fira+Sans+Extra+Condensed:wght@500;700;800&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
 	<meta name="color-scheme" content="light dark">
 
-	<!-- CSS: the site's own stylesheet replaces the theme's main.scss -->
-	{{ $custom := resources.Get "sass/custom.scss" | toCSS (dict "targetPath" "css/custom.css" "enableSourceMap" false) }}
-	{{ if not hugo.IsServer }}{{ $custom = $custom | minify | fingerprint }}{{ end }}
-	<link rel="stylesheet" href="{{ $custom.RelPermalink }}">
+	<!-- CSS: plain CSS, no Sass step. Replaces the theme's main.scss. -->
+	{{ $css := resources.Get "css/site.css" }}
+	{{ if not hugo.IsServer }}{{ $css = $css | minify | fingerprint }}{{ end }}
+	<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
 	<!-- Google Analytics, loaded only after consent (see analytics-consent.html) -->
 	{{ partial "analytics-ga4" . }}
