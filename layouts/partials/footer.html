@@ -1,22 +1,20 @@
 <!-- Footer -->
-<footer class="wrapper style1 align-center">
-    <div class="inner">
-        <ul class="icons">
-            {{ with .Site.Params.social.github }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>{{end}}
-            {{ with .Site.Params.social.twitter }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>{{end}}
-            {{ with .Site.Params.social.bluesky }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-bluesky"><span class="label">bluesky</span></a></li>{{end}}
-            {{ with .Site.Params.social.instagram }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>{{end}}
-            {{ with .Site.Params.social.linkedin }}<li><a target="_blank" rel="noopener noreferrer" href="{{.}}" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>{{end}}
-            {{ with .Site.Params.social.email }}<li><a target="_blank" rel="noopener noreferrer" href="mailto:{{.}}" class="fav icon style2 fa-envelope"><span class="label">Email</span></a></li>{{end}}
-        </ul>
-        <p>&copy; {{ now.Format "2006" }} {{ or .Site.Params.author .Site.Title }}<span class="footerspacer icon solid fa-diamond"></span>
-            Built with <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/hugo-story">Hugo Story</a> based <a target="_blank" rel="noopener noreferrer" href="https://github.com/caressofsteel/">CaressOfSteel</a><span class="footerspacer icon solid fa-diamond"></span><a href="#" id="cookie-settings-link">Cookie settings</a></p>
-    </div>
+<footer class="site-footer">
+    <ul class="site-footer-links">
+        {{ with .Site.Params.social.email }}<li><a href="mailto:{{ . }}">{{ . }}</a></li>{{ end }}
+        {{ with .Site.Params.social.github }}<li><a rel="noopener noreferrer" href="{{ . }}">GitHub</a></li>{{ end }}
+        {{ with .Site.Params.social.linkedin }}<li><a rel="noopener noreferrer" href="{{ . }}">LinkedIn</a></li>{{ end }}
+        {{ with .Site.Params.social.bluesky }}<li><a rel="noopener noreferrer" href="{{ . }}">Bluesky</a></li>{{ end }}
+        {{ with .Site.Params.social.twitter }}<li><a rel="noopener noreferrer" href="{{ . }}">Twitter</a></li>{{ end }}
+        {{ with .Site.Params.social.instagram }}<li><a rel="noopener noreferrer" href="{{ . }}">Instagram</a></li>{{ end }}
+    </ul>
+    <p class="site-footer-legal">
+        &copy; {{ now.Format "2006" }} {{ or .Site.Params.author .Site.Title }}.
+        Built on <a rel="noopener noreferrer" href="https://github.com/caressofsteel/hugo-story">Hugo Story</a> by CaressOfSteel.
+        <a href="{{ "privacy/" | relURL }}">Privacy</a>
+        <a href="{{ "imprint/" | relURL }}">Imprint</a>
+        <a href="#" id="cookie-settings-link">Cookie settings</a>
+    </p>
 </footer>
 
 {{ partial "analytics-consent" . }}
-
-<!-- FontAwesome JS -->
-{{ range .Site.Params.asset.fontawesome_js -}}
-    <script type="text/javascript" src="{{ . | absURL }}"></script>
-{{- end }}

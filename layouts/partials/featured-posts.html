@@ -1,37 +1,28 @@
-<!-- Featured Blog Posts -->
-<section class="wrapper style1 align-left" {{ with .id }} id="{{ . }}"{{ end }}>
-    <div class="inner align-left">
-        {{ with .title }}<h2>{{ . }}</h2>{{ end }}
-        {{ with .content }}<p>{{ . | safeHTML }}</p>{{ end }}
-        <div class="blog-list">
-            {{ $featured := where (where site.RegularPages "Section" "post") "Params.featured" true }}
-            {{ range $featured }}
-            <article class="blog-item">
-                <a href="{{ .RelPermalink }}" class="blog-item-link">
-                    <div class="blog-content{{ if not .Params.cover }} no-thumb{{ end }}">
-                        {{ if .Params.cover }}
-                        <div class="blog-thumbnail">
-                            <img src="{{ .Params.cover }}" alt="{{ .Title }}" loading="lazy" decoding="async" width="120" height="80" />
-                        </div>
-                        {{ end }}
-                        <div class="blog-info">
-                            <h3>{{ .Title }}</h3>
-                            <p class="blog-summary">{{ .Description | default .Summary | truncate 160 }}</p>
-                            <p class="blog-meta">
-                                {{ if .Date }}<span class="blog-date">{{ .Date.Format "January 2, 2006" }}</span>{{ end }}
-                                <span class="blog-reading-time">{{ .ReadingTime }} min read</span>
-                            </p>
-                            {{ if .Params.tags }}
-                            <p class="blog-tags">{{ range .Params.tags }}<span>{{ . }}</span> {{ end }}</p>
-                            {{ end }}
-                        </div>
-                    </div>
-                </a>
-            </article>
-            {{ end }}
-        </div>
-        <ul class="actions">
-            <li><a href="/post/" class="button">All posts</a></li>
-        </ul>
-    </div>
+<!-- Featured writing, drawn as a space-time diagram: posts are messages to the reader, the last one is the reply path. -->
+{{ $featured := sort (where (where site.RegularPages "Section" "post") "Params.featured" true) "Date" "desc" }}
+{{ $posts := first 3 $featured }}
+<section class="exchange" {{ with .id }}id="{{ . }}"{{ end }} aria-labelledby="exchange-title">
+    <h2 id="exchange-title" class="visually-hidden">{{ .title | default "Featured writing" }}</h2>
+    <p class="exchange-lanes" aria-hidden="true"><span>Martin</span><span>You</span></p>
+    <ol class="exchange-log">
+        {{ range $i, $post := sort $posts "Date" "asc" }}
+        <li class="msg" style="--i: {{ $i }}">
+            <svg class="msg-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line x1="0" y1="0" x2="100" y2="100" /></svg>
+            <a class="msg-label" href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2006" }}</time>
+                <span class="msg-title">{{ .Title }}</span>
+            </a>
+        </li>
+        {{ end }}
+        {{ with site.Params.social.email }}
+        <li class="msg msg-reply" style="--i: {{ len $posts }}">
+            <svg class="msg-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line x1="100" y1="0" x2="0" y2="100" /></svg>
+            <a class="msg-label" href="mailto:{{ . }}">
+                <span class="msg-meta">Consulting, questions or a reply</span>
+                <span class="msg-title">Write to {{ . }}</span>
+            </a>
+        </li>
+        {{ end }}
+    </ol>
+    <p class="exchange-more"><a href="{{ "post/" | relURL }}">All writing</a></p>
 </section>

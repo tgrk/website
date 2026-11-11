@@ -1,12 +1,11 @@
 ####################### Spotlight #########################
 style: "style1 orient-right content-align-left image-position-center onscroll-image-fade-in"
 id: "about"
-title: "About Me"
+title: "About"
 content: |
-  I am originally from <strong>Prague, Czech Republic</strong> and now based in <strong>Berlin, Germany</strong>. I have worked across enterprise and startup teams, helping products scale from early systems to production-critical platforms.
-  <br><br>
-  With <strong>25+ years of engineering experience</strong>, I focus on distributed systems, reliability, and pragmatic delivery. I also contribute to open source and regularly share practical lessons from real-world systems work.
+  <p>I am originally from <strong>Prague, Czech Republic</strong> and now based in <strong>Berlin, Germany</strong>. I have worked across enterprise and startup teams, helping products scale from early systems to production-critical platforms.</p>
+  <p>With <strong>25+ years of engineering experience</strong>, I focus on distributed systems, reliability, and pragmatic delivery. I also contribute to open source and regularly share practical lessons from real-world systems work.</p>
 button:
   label: "Read Writing"
   link: "#blog"
-image: ""
+image: "/img/headers/profile_portrait.jpg"

@@ -1,7 +1,7 @@
 ####################### Spotlight #########################
 style: "style1 orient-left content-align-left image-position-center onscroll-image-fade-in"
 id: "specialties"
-title: "Specialties & Technologies"
+title: "What I work on"
 content: |
   <ul>
     <li>Distributed systems design and production reliability</li>
@@ -10,8 +10,7 @@ content: |
     <li>LLM/AI integration into real team workflows</li>
     <li>Technical leadership, mentoring, and delivery</li>
   </ul>
-  <br>
-  <strong>Core Technologies:</strong> Erlang/OTP, Elixir, Go, TypeScript, Python, PostgreSQL, AWS, REST APIs, distributed systems
+  <p><strong>Core technologies:</strong> Erlang/OTP, Elixir, Go, TypeScript, Python, PostgreSQL, AWS, REST APIs, distributed systems</p>
 button:
   label: "Connect on LinkedIn"
   link: "https://www.linkedin.com/in/martinwiso/"
