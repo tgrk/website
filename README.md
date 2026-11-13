@@ -54,11 +54,11 @@ Pages:
 
 Posts:
 - `content/post/*.md`: full writing archive.
-- Set `featured: true` in post front matter to show a post in homepage featured writing.
+- List published posts in `data/items.yml` to feature them on the homepage.
 - Set valid `cover` and `description` in front matter.
 
 Canonical projects source:
-- Keep projects in `data/projects.yml` for the full projects page.
+- Keep project descriptions and links in `data/projects.yml`. List the project titles to feature on the homepage in `data/gallery.yml`.
 
 ## Blog Comments (Disqus)
 
@@ -68,7 +68,7 @@ Comments use Hugo's built-in Disqus template and the `wiso` shortname in `[servi
 
 - Theme base: `hugo-story` supplies only `baseof.html` and the Hugo plumbing. Its CSS, jQuery bundle and FontAwesome are no longer loaded (`layouts/partials/scripts.html` is intentionally empty).
 - Styling: `assets/css/site.css` is the whole stylesheet. Tokens live on `:root` with a dark-mode override; display type is Fira Sans Extra Condensed, reading type Literata, code Fira Code.
-- Homepage hero: `layouts/partials/featured-posts.html` draws the three newest `featured: true` posts as a space-time (message) diagram, ending with an email reply.
+- Homepage hero: `layouts/partials/featured-posts.html` presents selected posts as a message diagram on wide screens and a compact list on smaller screens.
 - Relaunch direction:
   - split CTA emphasis (writing first, consulting/contact secondary),
   - curated featured posts on homepage while keeping full archive on `/post/`,
@@ -99,4 +99,10 @@ Mobile menu behavior (requires Node.js; builds into a temporary directory):
 
 ```bash
 node scripts/check-mobile-nav.cjs
+```
+
+Analytics consent regression check (requires Node.js):
+
+```bash
+node scripts/check-analytics-consent.cjs
 ```

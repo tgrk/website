@@ -3,8 +3,9 @@
 <script>
 (function () {
   var consentKey = "site_analytics_consent";
-  var measurementId = {{ $measurementID | jsonify }};
-  var consentRequired = {{ .Site.Params.analytics.consent_required | jsonify }};
+  var measurementId = {{ $measurementID }};
+  var disableKey = "ga-disable-" + measurementId;
+  var consentRequired = {{ .Site.Params.analytics.consent_required }};
   var loaded = false;
 
   function getStoredConsent() {
@@ -16,6 +17,7 @@
   }
 
   function loadAnalytics() {
+    window[disableKey] = false;
     if (loaded || !measurementId) {
       return;
     }
@@ -41,6 +43,9 @@
   }
 
   window.addEventListener("analytics:consent-granted", loadAnalytics);
+  window.addEventListener("analytics:consent-declined", function () {
+    window[disableKey] = true;
+  });
 })();
 </script>
 {{ end }}

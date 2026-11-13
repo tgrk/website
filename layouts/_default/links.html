@@ -2,20 +2,18 @@
 
 {{ partial "site-nav" . }}
 
-<section class="wrapper style1 align-left">
+<main class="wrapper style1 align-left" id="main" tabindex="-1">
     <div class="inner">
         <h1>{{ .Title }}</h1>
         <div class="content align-left">
             {{ .Content }}
             
-            {{ if hugo.Data.projects }}
-            {{ $items := slice }}
-            {{ range hugo.Data.projects }}{{ $items = $items | append (dict "title" .title "description" .description "url" .link) }}{{ end }}
-            {{ partial "project-list" $items }}
+            {{ with hugo.Data.projects }}
+            {{ partial "project-list" . }}
             {{ end }}
         </div>
     </div>
-</section>
+</main>
 
 {{ partial "footer" . }}
 

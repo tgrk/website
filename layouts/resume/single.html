@@ -4,7 +4,7 @@
 
 {{ $resume := hugo.Data.resume }}
 
-<section class="wrapper style1 align-left">
+<main class="wrapper style1 align-left" id="main" tabindex="-1">
     <div class="inner">
         <header>
             <h1>{{ .Title }}</h1>
@@ -108,7 +108,7 @@
 
             </div>
     </div>
-</section>
+</main>
 
 {{ partial "footer" . }}
 

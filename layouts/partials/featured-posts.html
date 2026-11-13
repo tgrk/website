@@ -1,11 +1,10 @@
 <!-- Featured writing, drawn as a space-time diagram: posts are messages to the reader, the last one is the reply path. -->
-{{ $featured := sort (where (where site.RegularPages "Section" "post") "Params.featured" true) "Date" "desc" }}
-{{ $posts := first 3 $featured }}
-<section class="exchange" {{ with .id }}id="{{ . }}"{{ end }} aria-labelledby="exchange-title">
-    <h2 id="exchange-title" class="visually-hidden">{{ .title | default "Featured writing" }}</h2>
+<section class="exchange" id="{{ .id }}" tabindex="-1" aria-labelledby="exchange-title">
+    <h2 id="exchange-title">{{ .title }}</h2>
     <p class="exchange-lanes" aria-hidden="true"><span>Martin</span><span>You</span></p>
     <ol class="exchange-log">
-        {{ range $i, $post := $posts }}
+        {{ range $i, $path := .posts }}
+        {{ with site.GetPage $path }}
         <li class="msg" style="--i: {{ $i }}">
             <svg class="msg-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line x1="0" y1="0" x2="100" y2="100" /></svg>
             <a class="msg-label" href="{{ .RelPermalink }}">
@@ -13,9 +12,12 @@
                 <span class="msg-title">{{ .Title }}</span>
             </a>
         </li>
+        {{ else }}
+        {{ errorf "Selected writing page %q is missing or unpublished" $path }}
+        {{ end }}
         {{ end }}
         {{ with site.Params.social.email }}
-        <li class="msg msg-reply" style="--i: {{ len $posts }}">
+        <li class="msg msg-reply" style="--i: {{ len $.posts }}">
             <svg class="msg-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><line x1="100" y1="0" x2="0" y2="100" /></svg>
             <a class="msg-label" href="mailto:{{ . }}">
                 <span class="msg-meta">Consulting, questions or a reply</span>

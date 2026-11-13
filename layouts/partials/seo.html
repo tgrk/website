@@ -1,4 +1,7 @@
 <!-- SEO Meta Tags -->
+{{ $title := printf "%s | %s" .Title .Site.Title }}
+{{ if .IsHome }}{{ $title = printf "%s | %s" .Site.Title .Site.Params.tagline }}{{ end }}
+<title>{{ $title }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}">
 <meta name="author" content="{{ .Site.Params.author | default .Site.Title }}">
 <meta name="keywords" content="{{ with .Params.tags }}{{ delimit . ", " }}{{ else }}{{ delimit .Site.Params.keywords ", " }}{{ end }}">
@@ -9,12 +12,18 @@
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+<meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 {{ $defaultImage := .Site.Params.defaultImage | default "/images/og-default.jpg" }}
 {{ $cover := .Params.cover | default $defaultImage }}
+{{ if .IsHome }}{{ $cover = "/img/headers/home-share.jpg" }}{{ end }}
 {{ $imageURL := cond (hasPrefix $cover "http") $cover ($cover | absURL) }}
 <meta property="og:image" content="{{ $imageURL }}">
+{{ if .IsHome }}
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="336">
+<meta property="og:image:alt" content="Martin Wišo on a rooftop overlooking the sea">
+{{ end }}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:locale" content="en_US">
 
@@ -22,7 +31,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@tajgur">
 <meta name="twitter:creator" content="@tajgur">
-<meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}">
+<meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="twitter:image" content="{{ $imageURL }}">
 
@@ -42,33 +51,33 @@
   "@context": "https://schema.org",
   "@type": "{{ if .IsPage }}Article{{ else }}WebSite{{ end }}",
   {{ if .IsPage }}
-  "headline": {{ .Title | jsonify }},
-  "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ .Summary | truncate 150 | jsonify }}{{ end }},
-  {{ with .PublishDate }}"datePublished": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
-  {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},{{ end }}
+  "headline": {{ .Title }},
+  "description": {{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }},
+  {{ with .PublishDate }}"datePublished": {{ .Format "2006-01-02T15:04:05Z07:00" }},{{ end }}
+  {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" }},{{ end }}
   "author": {
     "@type": "Person",
-    "name": {{ .Params.author | default "Martin Wišo" | jsonify }},
-    "url": {{ .Site.BaseURL | jsonify }}
+    "name": {{ .Params.author | default "Martin Wišo" }},
+    "url": {{ .Site.BaseURL }}
   },
   "publisher": {
     "@type": "Person",
     "name": "Martin Wišo",
-    "url": {{ .Site.BaseURL | jsonify }}
+    "url": {{ .Site.BaseURL }}
   },
-  "image": {{ $imageURL | jsonify }},
+  "image": {{ $imageURL }},
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": {{ .Permalink | jsonify }}
+    "@id": {{ .Permalink }}
   }
   {{ else }}
-  "name": {{ .Site.Title | jsonify }},
-  "url": {{ .Site.BaseURL | jsonify }},
-  "description": {{ .Site.Params.description | jsonify }},
+  "name": {{ .Site.Title }},
+  "url": {{ .Site.BaseURL }},
+  "description": {{ .Site.Params.description }},
   "publisher": {
     "@type": "Person",
     "name": "Martin Wišo",
-    "url": {{ .Site.BaseURL | jsonify }}
+    "url": {{ .Site.BaseURL }}
   }
   {{ end }}
 }
@@ -86,7 +95,6 @@
   "jobTitle": "Software Engineer & Technical Lead",
   "description": "{{ .Site.Params.description }}",
   "email": "martin@wiso.cz",
-  "alumniOf": "Prague, Czech Republic",
   "knowsAbout": ["Erlang", "Elixir", "Golang", "Distributed Systems", "Cloud Computing", "Functional Programming"],
   "sameAs": [
     "https://github.com/tgrk",

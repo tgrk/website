@@ -2,12 +2,12 @@
 - title: "Elixir AI Starter"
   link: "https://github.com/tgrk/elixir-ai-starter"
   avatar: "https://www.wiso.cz/media/github.png"
-  description: "Elixir/OTP project template with quality checks, CI, and tools for AI-assisted development."
+  description: "I extracted my Elixir project setup into a reusable template with quality checks, CI, and instructions for coding agents."
 
 - title: "Erlpocket"
   link: "https://hex.pm/packages/erlpocket"
   avatar: "https://www.wiso.cz/media/hex.png"
-  description: "Erlang client for the Pocket API to save and manage reading lists."
+  description: "Historical project. An Erlang client for Pocket reading lists. Mozilla shut down the Pocket API in November 2025."
 
 - title: "Lager Humio Backend"
   link: "https://hex.pm/packages/lager_humio_backend"
@@ -32,9 +32,14 @@
 - title: "Human IDs"
   link: "https://hex.pm/packages/humanids"
   avatar: "https://www.wiso.cz/media/hex.png"
-  description: "Elixir library for generating compact, human-readable identifiers."
+  description: "An Elixir library I built for generating compact identifiers people can read and share."
 
 - title: "ExOura"
   link: "https://hex.pm/packages/ex_oura"
   avatar: "https://www.wiso.cz/media/hex.png"
   description: "Elixir client for the Oura API with a clean integration layer."
+
+- title: "APIDiff"
+  link: "https://github.com/tgrk/apidiff"
+  avatar: "https://www.wiso.cz/media/github.png"
+  description: "I built this CLI to catch HTTP API changes while moving services back into a monolith."
