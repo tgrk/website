@@ -25,7 +25,7 @@ When you visit our website, certain information is automatically collected, incl
 - Date and time of visit
 
 #### Analytics
-We use Google Analytics 4 (GA4) only when you explicitly accept analytics consent via our cookie banner. If you decline, analytics is not loaded and no GA4 tracking requests are sent from your browser.
+We use Google Analytics 4 (GA4) only after you accept analytics in the prompt near the footer. You can change your choice through **Cookie settings** in the footer. Declining stops further GA4 data collection in the current tab and prevents the tag from loading on later visits.
 
 ### How We Use Your Information
 

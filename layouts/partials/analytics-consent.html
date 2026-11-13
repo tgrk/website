@@ -1,14 +1,14 @@
 {{ if and .Site.Params.analytics.enabled .Site.Params.analytics.consent_required }}
-<div id="cookie-consent" class="cookie-consent" hidden>
-  <p>This site uses optional Google Analytics to understand site usage. You can accept or decline.</p>
-  <ul class="actions cookie-consent-actions">
-    <li><a href="#" class="button primary small" data-consent-action="accept">Accept</a></li>
-    <li><a href="#" class="button small" data-consent-action="decline">Decline</a></li>
-  </ul>
+<div id="cookie-consent" class="cookie-consent" role="group" aria-labelledby="cookie-consent-description" hidden>
+  <p id="cookie-consent-description">This site uses optional Google Analytics to understand site usage.</p>
+  <div class="cookie-consent-actions">
+    <button type="button" class="button" data-consent-action="accept">Accept analytics</button>
+    <button type="button" class="button" data-consent-action="decline">Decline analytics</button>
+  </div>
 </div>
 
 <script>
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
   var consentKey = "site_analytics_consent";
   var banner = document.getElementById("cookie-consent");
   var cookieSettingsLink = document.getElementById("cookie-settings-link");
@@ -35,10 +35,13 @@
 
   function showBanner() {
     banner.hidden = false;
+    cookieSettingsLink.setAttribute("aria-expanded", "true");
   }
 
   function hideBanner() {
     banner.hidden = true;
+    cookieSettingsLink.setAttribute("aria-expanded", "false");
+    cookieSettingsLink.focus();
   }
 
   function grantConsent() {
@@ -49,6 +52,7 @@
 
   function declineConsent() {
     setStoredConsent("declined");
+    window.dispatchEvent(new Event("analytics:consent-declined"));
     hideBanner();
   }
 
@@ -60,10 +64,6 @@
     var target = event.target && event.target.closest("[data-consent-action]");
     var action = target && target.getAttribute("data-consent-action");
 
-    if (action) {
-      event.preventDefault();
-    }
-
     if (action === "accept") {
       grantConsent();
       return;
@@ -74,16 +74,10 @@
     }
   });
 
-  window.openCookieSettings = function () {
+  cookieSettingsLink.addEventListener("click", function () {
     showBanner();
-  };
-
-  if (cookieSettingsLink) {
-    cookieSettingsLink.addEventListener("click", function (event) {
-      event.preventDefault();
-      window.openCookieSettings();
-    });
-  }
-})();
+    banner.querySelector("button").focus();
+  });
+});
 </script>
 {{ end }}

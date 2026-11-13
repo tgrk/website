@@ -1,11 +1,11 @@
-{{/* Shared by the homepage gallery and /projects/. Expects a slice of maps with title, description and url. */}}
+{{/* Shared by the homepage gallery and /projects/. */}}
 <ul class="project-list">
     {{ range . }}
     <li>
-        <a href="{{ .url }}" target="_blank" rel="noopener">
+        <a href="{{ .link }}" target="_blank" rel="noopener">
             <span class="project-name">{{ .title }}</span>
             <span class="project-desc">{{ .description }}</span>
-            <span class="project-host">{{ if findRE "hex.pm" .url }}Hex.pm{{ else if findRE "github.com" .url }}GitHub{{ else }}Website{{ end }}</span>
+            <span class="project-host">{{ if findRE "hex.pm" .link }}Hex.pm{{ else if findRE "github.com" .link }}GitHub{{ else }}Website{{ end }}</span>
         </a>
     </li>
     {{ end }}

@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 	{{ partial "site-nav" . }}
-	<main class="home" id="main">
+	<main class="home" id="main" tabindex="-1">
 		<div class="hero-grid">
 			{{ partial "banner" hugo.Data.banner }}
 			{{ partial "featured-posts" hugo.Data.items }}

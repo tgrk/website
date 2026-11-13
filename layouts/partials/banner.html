@@ -3,4 +3,8 @@
     {{ with .title }}<h1 class="hero-name">{{ . }}</h1>{{ end }}
     {{ with .subtitle }}<p class="hero-role">{{ . }}</p>{{ end }}
     {{ with .content }}<p class="hero-lede">{{ . | safeHTML }}</p>{{ end }}
+    <div class="hero-actions">
+        <a class="button primary" href="#blog">Read my writing</a>
+        {{ with site.Params.social.email }}<a class="button hero-contact" href="mailto:{{ . }}">Get in touch</a>{{ end }}
+    </div>
 </header>

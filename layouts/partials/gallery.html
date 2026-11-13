@@ -1,9 +1,14 @@
 <!-- Projects -->
 <section class="block" {{ with .id }}id="{{ . }}"{{ end }}>
     {{ with .title }}<h2>{{ . }}</h2>{{ end }}
-    {{ with .content }}<p class="block-intro">{{ . | safeHTML }}</p>{{ end }}
     {{ $items := slice }}
-    {{ range .pictures }}{{ $items = $items | append (dict "title" .title "description" .content "url" .url) }}{{ end }}
+    {{ range .projects }}
+        {{ with index (where hugo.Data.projects "title" .) 0 }}
+            {{ $items = $items | append . }}
+        {{ else }}
+            {{ errorf "Selected project %q is missing from data/projects.yml" . }}
+        {{ end }}
+    {{ end }}
     {{ partial "project-list" $items }}
     <p class="block-more"><a href="{{ "projects/" | relURL }}">All projects</a></p>
 </section>

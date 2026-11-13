@@ -34,7 +34,7 @@ if ! rg -q "Erlpocket" public/projects/index.html; then
   exit 1
 fi
 
-if ! rg -q "featured|APIDiff CLI Tool|Talk for Pyladies" public/index.html; then
+if ! rg -q 'id=exchange-title>Selected writing</h2>' public/index.html; then
   echo "ERROR: Homepage featured writing section appears missing"
   exit 1
 fi

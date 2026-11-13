@@ -2,7 +2,7 @@
 
 {{ partial "site-nav" . }}
 
-<section class="wrapper style1 align-left">
+<main class="wrapper style1 align-left" id="main" tabindex="-1">
   <div class="inner">
     <h1>{{ .Title }}</h1>
     <p>Browse posts by {{ .Data.Plural }}.</p>
@@ -21,7 +21,7 @@
       {{ end }}
     </div>
   </div>
-</section>
+</main>
 
 {{ partial "footer" . }}
 
