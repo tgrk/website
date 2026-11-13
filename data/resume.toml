@@ -16,7 +16,7 @@ interests = [
   "AI Tooling",
   "Platform Architecture",
   "Running",
-  "Martin Arts",
+  "Martial Arts",
   "Books",
   "Art"
 ]
@@ -46,7 +46,7 @@ interests = [
 [education]
 
   [[education.list]]
-    degree = "Informational science, HCI"
+    degree = "Information science, HCI"
     school = "Charles University"
     year = "1999 - 2006"
     description = ""
@@ -142,7 +142,7 @@ interests = [
       "Built and maintained lending API products in the Consumer and SME Loan domain.",
       "Worked across Elixir/Erlang, RDBMS, Redis, Docker, and Concourse."
     ]
-    technologies = ["Elixir", "Docker Swarm", "Concourse", "PostgreSQL"]
+    technologies = ["Elixir", "Docker Swarm", "Concourse", "Redis", "MySQL"]
 
   [[experience.list]]
     name = "QT Mobilitätsservice (Qixxit)"
@@ -154,9 +154,9 @@ interests = [
     year = "06/2017 - 11/2017"
     projects = [
       "Integrated third-party APIs and improved route-planning backend scalability.",
-      "Stabilized and extended an Erlang/OTP prototype into a production replacement service."
+      "Stabilized and extended an Elixir/OTP prototype into a production replacement service."
     ]
-    technologies = ["Erlang/OTP", "REST APIs", "Microservices", "Neo4j", "PostgreSQL"]
+    technologies = ["Elixir/OTP", "REST APIs", "Microservices", "Neo4j", "PostgreSQL"]
 
   [[experience.list]]
     name = "Talon.One"
@@ -212,13 +212,13 @@ interests = [
       "Developed EMV backend systems for card payments with fault-tolerant Erlang architecture.",
       "Implemented ISO8583/GICC integrations and contributed to certification efforts."
     ]
-    technologies = ["Erlang/OTP", "Postgres", "EMV", "ISO8583", "Payments", "Fault Tolerance"]
+    technologies = ["Erlang/OTP", "PostgreSQL", "EMV", "ISO8583", "Payments", "Fault Tolerance"]
 
   [[experience.list]]
     name = "OpenLab Ltd."
     company = "OpenLab Ltd."
-    company_url = "http://www.amscloud.com"
-    company_favicon = "https://www.google.com/s2/favicons?domain=amscloud.com&sz=64"
+    company_url = ""
+    company_favicon = ""
     location = "Prague, Czech Republic"
     title = "Cofounder"
     year = "09/2008 - 11/2012"
